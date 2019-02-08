@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2019_02_08_182236) do
   enable_extension "plpgsql"
 
   create_table "trips", force: :cascade do |t|
+    t.string "type"
     t.string "trip_number"
     t.string "first_name"
     t.string "last_name"

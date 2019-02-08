@@ -191,7 +191,7 @@ trip_costs = [
 ]
 
 20.times do |trip|
-  Trip.create(
+  MtmTrip.create(
     trip_number: trip_numbers[trip],
     first_name: first_names[trip],
     last_name: last_names[trip],
