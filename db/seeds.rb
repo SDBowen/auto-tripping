@@ -216,7 +216,27 @@ trip_costs = [
   )
 end
 
+5.times do |trip|
+  Trip.create(
+    trip_number: (1 + trip),
+    first_name: 'test',
+    last_name:'tester',
+    phone_number: '0987654321',
+    pickup_address: 'Downtown St',
+    pickup_city: 'BOISE',
+    pickup_zip: '12345',
+    delivery_address: 'Uptown Dr',
+    delivery_city: 'Boise',
+    appointment_date: '20190208',
+    appointment_time: '300',
+    vehicle_type: 'P',
+    trip_mileage: 6.2,
+    trip_cost: 25.00,
+  )
+end
+
 User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', first_name: 'Test', last_name: 'Tester')
 
 puts '1 User created'
-puts '20 Trips have been created'
+puts '20 MTM Trips have been created'
+puts '5 Trips have been created'
