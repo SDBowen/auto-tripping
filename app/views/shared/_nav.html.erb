@@ -1,12 +1,13 @@
 <ul class="nav nav-tabs mt-4">
   <li class="nav-item">
-    <%= link_to 'Home', root_path, class: "nav-link active" %>
+    <%= link_to 'Home', root_path, class: active?(root_path) %>
   </li>
   <li class="nav-item">
-    <%= link_to 'Trips', trips_path, class: "nav-link" %>
+    <%= link_to 'Trips', trips_path, class: active?(trips_path) %>
   </li>
   <li class="nav-item">
-    <%= link_to 'Schedules', root_path, class: "nav-link" %>
+    <%# <%= link_to 'Schedules', root_path, class: active?(path) %>
+    <%= link_to 'Schedules', root_path, class: 'nav-link' %>
   </li>
   <li class="nav-item dropdown ml-md-auto">
     <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Actions</a>

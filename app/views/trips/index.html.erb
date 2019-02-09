@@ -1,1 +1,85 @@
 <h1>Trips page</h1>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Pickup Address
+      </th>
+      <th>
+        Dropoff Address
+      </th>
+      <th>
+        Phone Number
+      </th>
+      <th>
+        Scheduled Pickup Time
+      </th>
+      <th>
+        Appointment Date
+      </th>
+      <th>
+        Vehicle Type
+      </th>
+      <th>
+        Trip Reason
+      </th>
+      <th>
+        Mileage
+      </th>
+      <th>
+        Trip Instruction
+      </th>
+      <th>
+        Notes
+      </th>
+      <th>
+        Trip Number
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+      <tr>
+        <td>
+          <%= trip.last_name %>
+        </td>
+        <td>
+          <%= trip.pickup_address %>
+        </td>
+        <td>
+          <%= trip.delivery_address %>
+        </td>
+        <td>
+          <%= trip.phone_number %>
+        </td>
+        <td>
+          Scheduled Pickup Entry
+        </td>
+        <td>
+          <%= trip.appointment_time %>
+        </td>
+        <td>
+          <%= trip.vehicle_type %>
+        </td>
+        <td>
+          <%= trip.reason_code %>
+        </td>
+        <td>
+          <%= trip.trip_mileage %>
+        </td>
+        <td>
+          <%= trip.instructions %>
+        </td>
+        <td>
+          Notes Entry
+        </td>
+        <td>
+          <%= trip.trip_number %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

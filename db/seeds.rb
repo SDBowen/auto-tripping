@@ -216,4 +216,7 @@ trip_costs = [
   )
 end
 
+User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', first_name: 'Test', last_name: 'Tester')
+
+puts '1 User created'
 puts '20 Trips have been created'

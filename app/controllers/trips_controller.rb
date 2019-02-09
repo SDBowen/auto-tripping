@@ -4,7 +4,9 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show]
 
-  def index; end
+  def index
+    @trips = Trip.last(50)
+  end
 
   def new
     @trip = Trip.new
@@ -12,7 +14,6 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.user_id = current_user.id
 
     if @trip.save
       redirect_to @trip, notice: 'Trip saved successfully'
