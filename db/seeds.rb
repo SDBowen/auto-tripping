@@ -235,8 +235,11 @@ end
   )
 end
 
-User.create(email: 'test@test.com', password: 'password', password_confirmation: 'password', first_name: 'Test', last_name: 'Tester')
+User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'User', last_name: 'Tester')
+
+User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
 
 puts '1 User created'
+puts '1 Admin created'
 puts '20 MTM Trips have been created'
 puts '5 Trips have been created'
