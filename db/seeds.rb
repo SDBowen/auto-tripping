@@ -191,7 +191,7 @@ trip_costs = [
 ]
 
 20.times do |trip|
-  MtmTrip.create(
+  Trip.create(
     trip_number: trip_numbers[trip],
     first_name: first_names[trip],
     last_name: last_names[trip],
@@ -204,13 +204,13 @@ trip_costs = [
     appointment_date: '20190208',
     appointment_time: app_times[trip],
     reason_code: '29',
-    trip_status: 'S1',
+    status: 'S1',
     vehicle_type: 'P',
     trip_type: trip_type[trip],
     additional_passengers: 0,
     additional_appointments: 0,
-    trip_mileage: trip_miles[trip],
-    trip_cost: trip_costs[trip],
+    mileage: trip_miles[trip],
+    cost: trip_costs[trip],
     special_needs: 'CALL TO CONFIRM W PICK UP TIME/CALL UPON ARRIVAL',
     instructions: 'RTP M,T W F 9AM-3:00PM    DOOR TO DOOR ASSISTANCE'
   )
@@ -230,8 +230,8 @@ end
     appointment_date: '20190208',
     appointment_time: '300',
     vehicle_type: 'P',
-    trip_mileage: 6.2,
-    trip_cost: 25.00,
+    mileage: 6.2,
+    cost: 25.00,
   )
 end
 

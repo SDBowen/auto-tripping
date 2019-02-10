@@ -14,13 +14,13 @@ FactoryBot.define do
     appointment_date { '20190125' }
     appointment_time { '900' }
     reason_code { '64' }
-    trip_status { 'S1' }
+    status { 'S1' }
     vehicle_type { 'C' }
     trip_type { 'T' }
     additional_passengers { 0 }
     additional_appointments { 0 }
-    trip_mileage { 3.54 }
-    trip_cost { 41.75 }
+    mileage { 3.54 }
+    cost { 41.75 }
     special_needs { 'CALL TO CONFIRM W PICK UP TIME/CALL UPON ARRIVAL' }
     instructions { 'RTP T/W/R/F M-12:30PM          EXP 11/30/18' }
   end
@@ -38,13 +38,13 @@ FactoryBot.define do
     appointment_date { '20190125' }
     appointment_time { '900' }
     reason_code { '64' }
-    trip_status { 'S1' }
+    status { 'S1' }
     vehicle_type { 'C' }
     trip_type { 'T' }
     additional_passengers { 0 }
     additional_appointments { 0 }
-    trip_mileage { 3.54 }
-    trip_cost { 41.75 }
+    mileage { 3.54 }
+    cost { 41.75 }
     special_needs { 'CALL TO CONFIRM W PICK UP TIME/CALL UPON ARRIVAL' }
     instructions { 'RTP T/W/R/F M-12:30PM          EXP 11/30/18' }
   end

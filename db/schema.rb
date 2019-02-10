@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2019_02_09_043947) do
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "type"
+    t.string "provider"
     t.string "trip_number"
     t.string "first_name"
     t.string "last_name"
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 2019_02_09_043947) do
     t.string "appointment_date"
     t.string "appointment_time"
     t.string "reason_code"
-    t.string "trip_status"
+    t.string "status"
     t.string "vehicle_type"
     t.string "trip_type"
     t.integer "additional_passengers"
     t.integer "additional_appointments"
-    t.float "trip_mileage"
-    t.float "trip_cost"
+    t.float "mileage"
+    t.float "cost"
     t.text "special_needs"
     t.text "instructions"
     t.datetime "created_at", null: false
