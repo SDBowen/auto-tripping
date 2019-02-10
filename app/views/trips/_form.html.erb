@@ -1,0 +1,7 @@
+<%= form_for @trip do |f| %>
+  <%= f.text_field :trip_number %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.number_field :trip_cost %>
+  <%= f.submit 'save' %>
+<% end %>

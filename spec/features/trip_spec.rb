@@ -7,15 +7,15 @@ describe 'Navigation:' do
     user = create(:user)
     login_as(user, scope: :user)
   end
-  describe 'index' do
+  describe 'Index' do
     before do
       visit trips_path
     end
-    it 'it can be reached successfully' do
+    it 'can be reached successfully' do
       expect(page.status_code).to eq(200)
     end
 
-    it 'it has a title of Trips' do
+    it 'has a title of Trips' do
       expect(page).to have_content(/Trips page/)
     end
 
@@ -29,7 +29,7 @@ describe 'Navigation:' do
     end
   end
 
-  describe 'Creation:' do
+  describe 'Creation' do
     before do
       visit new_trip_path
     end
@@ -45,6 +45,28 @@ describe 'Navigation:' do
       click_on 'save'
 
       expect(page).to have_content('Sauce')
+    end
+  end
+
+  describe 'Edit' do
+    before do
+      @trip = create(:trip)
+    end
+    it 'can be reached by edit button' do
+      visit trips_path
+
+      click_link "trip_#{@trip.id}"
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can edit a trip' do
+      visit edit_trip_path(@trip)
+
+      fill_in 'trip[first_name]', with: 'Stu'
+      fill_in 'trip[last_name]', with: 'Little'
+      click_on 'save'
+
+      expect(page).to have_content(/Stu|Little/)
     end
   end
 end

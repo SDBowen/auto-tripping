@@ -2,7 +2,7 @@
 
 # Controller handles all Trip actions
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show]
+  before_action :set_trip, only: %i[show edit update]
 
   def index
     @trips = Trip.last(50)
@@ -23,6 +23,16 @@ class TripsController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    if @trip.update(trip_params)
+      redirect_to @trip, notice: 'Trip updated successfully'
+    else
+      render :edit
+    end
+  end
 
   private
 

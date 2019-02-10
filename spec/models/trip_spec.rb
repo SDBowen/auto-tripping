@@ -18,7 +18,7 @@ RSpec.describe Trip, type: :model do
   end
 
   describe 'Name method:' do
-    it 'combines first and last name' do
+    it 'Combines first and last name' do
       expect(@trip.full_name).to eq('JON SNOW')
   end
   end
