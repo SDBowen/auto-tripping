@@ -31,4 +31,16 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 2. Schedule a trip (sched. pickup time & driver)
 3. Complete a trip (actual pick time, departure time, actual drop off, vehicle id, and signature type)
 4. Bill a trip
-5.
+5. Locked
+
+## Stages
+
+- Trip -> Scheduled -> Complete -> Billed -> Locked
+
+## Trip Status
+
+0. Entered
+1. Scheduled
+1. Completed
+1. Billed
+1. Locked
