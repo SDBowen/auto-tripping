@@ -25,6 +25,10 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 - Bootstrap
 - FA Icons
 
-## Refactor TODO
+## Process
 
--
+1. Enter a trip
+2. Schedule a trip (sched. pickup time & driver)
+3. Complete a trip (actual pick time, departure time, actual drop off, vehicle id, and signature type)
+4. Bill a trip
+5.

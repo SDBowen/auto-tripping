@@ -6,6 +6,7 @@ class CreateCompletedTrips < ActiveRecord::Migration[5.2]
       t.time :actual_pickup_time
       t.time :departure_time
       t.time :actual_dropoff_time
+      t.string :signature_type
       t.references :scheduledtrip
       t.references :vehicle
 
