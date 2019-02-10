@@ -14,7 +14,7 @@ FactoryBot.define do
     appointment_date { '20190125' }
     appointment_time { '900' }
     reason_code { '64' }
-    status { 'S1' }
+    provider_status { 'S1' }
     vehicle_type { 'C' }
     trip_type { 'T' }
     additional_passengers { 0 }
@@ -38,7 +38,7 @@ FactoryBot.define do
     appointment_date { '20190125' }
     appointment_time { '900' }
     reason_code { '64' }
-    status { 'S1' }
+    provider_status { 'S1' }
     vehicle_type { 'C' }
     trip_type { 'T' }
     additional_passengers { 0 }

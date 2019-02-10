@@ -204,7 +204,7 @@ trip_costs = [
     appointment_date: '20190208',
     appointment_time: app_times[trip],
     reason_code: '29',
-    status: 'S1',
+    provider_status: 'S1',
     vehicle_type: 'P',
     trip_type: trip_type[trip],
     additional_passengers: 0,
