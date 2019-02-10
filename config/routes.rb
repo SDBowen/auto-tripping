@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       resources :scheduled_trips
       resources :trips
       resources :vehicles
-      resources :admin_users
 
       root to: "users#index"
     end
