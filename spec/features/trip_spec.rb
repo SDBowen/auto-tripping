@@ -29,6 +29,15 @@ describe 'Navigation:' do
     end
   end
 
+  describe 'New' do
+    it 'has a link on the nav bar' do
+      visit root_path
+
+      click_link 'new_trip_from_nav'
+      expect(page.status_code).to eq(200)
+    end
+  end
+
   describe 'Creation' do
     before do
       visit new_trip_path
@@ -55,7 +64,7 @@ describe 'Navigation:' do
     it 'can be reached by edit button' do
       visit trips_path
 
-      click_link "trip_#{@trip.id}"
+      click_link "edit_button_#{@trip.id}"
       expect(page.status_code).to eq(200)
     end
 
