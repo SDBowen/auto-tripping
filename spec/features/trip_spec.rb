@@ -51,7 +51,7 @@ describe 'Navigation:' do
       fill_in 'trip[first_name]', with: 'Taco'
       fill_in 'trip[last_name]', with: 'Sauce'
       fill_in 'trip[cost]', with: '19.02'
-      click_on 'save'
+      click_on 'Save'
 
       expect(page).to have_content('Sauce')
     end
@@ -73,7 +73,7 @@ describe 'Navigation:' do
 
       fill_in 'trip[first_name]', with: 'Stu'
       fill_in 'trip[last_name]', with: 'Little'
-      click_on 'save'
+      click_on 'Save'
 
       expect(page).to have_content(/Stu|Little/)
     end
