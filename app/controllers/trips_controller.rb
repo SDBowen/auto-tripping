@@ -18,7 +18,7 @@ class TripsController < ApplicationController
     if @trip.save
       redirect_to @trip, notice: 'Trip saved successfully'
     else
-      render new
+      render :new
     end
   end
 
@@ -37,7 +37,11 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:trip_number, :first_name, :last_name, :cost)
+    params.require(:trip).permit(:id, :provider, :trip_number, :first_name, :last_name,
+                                 :phone_number, :pickup_address, :pickup_city, :pickup_zip,
+                                 :delivery_address, :appointment_date, :appointment_time,
+                                 :vehicle_type, :trip_type, :additional_passengers,
+                                 :mileage, :cost, :instructions)
   end
 
   def set_trip

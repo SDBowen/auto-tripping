@@ -1,4 +1,9 @@
 <%= form_for @trip do |f| %>
+  <% if @trip.errors.any?  %>
+    <% @trip.errors.full_messages.each do |error| %>
+      <%= js add_gritter(error, title: 'Scheduler Notification', sticky: false)  %>
+    <% end %>
+  <% end %>
   <div class="container">
     <div class="row">
       <div class="col">
