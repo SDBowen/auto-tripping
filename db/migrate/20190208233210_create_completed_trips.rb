@@ -8,7 +8,6 @@ class CreateCompletedTrips < ActiveRecord::Migration[5.2]
       t.time :actual_dropoff_time
       t.string :signature_type
       t.references :scheduledtrip
-      t.references :vehicle
 
       t.timestamps
     end

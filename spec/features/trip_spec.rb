@@ -20,8 +20,8 @@ describe 'Navigation:' do
     end
 
     it 'has a list of trips' do
-      trip1 = create(:trip)
-      trip2 = create(:second_trip)
+      create(:trip)
+      create(:second_trip)
 
       visit trips_path
 

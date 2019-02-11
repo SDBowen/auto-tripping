@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Trip < ApplicationRecord
+  has_one :scheduled_trip
+
   enum status: { entered: 0, scheduled: 1, completed: 2, billed: 3, locked: 4 }
   validates :trip_number, presence: true
 
