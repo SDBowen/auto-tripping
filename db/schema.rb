@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_232310) do
+ActiveRecord::Schema.define(version: 2019_02_11_215619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  
   create_table "drivers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -23,8 +22,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  
+
   create_table "trips", force: :cascade do |t|
     t.string "provider"
     t.string "trip_number"
@@ -49,8 +47,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.text "special_needs"
     t.text "instructions"
     t.string "signature_type"
-    t.string "driver"
-    t.bigint "vehicle"
     t.time "scheduled_pickup"
     t.time "actual_pickup_time"
     t.time "departure_time"
@@ -58,9 +54,11 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.bigint "driver_id"
+    t.bigint "vehicle_id"
+    t.index ["driver_id"], name: "index_trips_on_driver_id"
+    t.index ["vehicle_id"], name: "index_trips_on_vehicle_id"
   end
-
-
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -84,4 +82,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "trips", "drivers"
+  add_foreign_key "trips", "vehicles"
 end

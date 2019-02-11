@@ -220,7 +220,7 @@ end
   Trip.create(
     trip_number: (1 + trip),
     first_name: 'test',
-    last_name:'tester',
+    last_name: 'tester',
     phone_number: '0987654321',
     pickup_address: 'Downtown St',
     pickup_city: 'BOISE',
@@ -231,7 +231,24 @@ end
     appointment_time: '300',
     vehicle_type: 'P',
     mileage: 6.2,
-    cost: 25.00,
+    cost: 25.00
+  )
+end
+
+driver_first = %w[Sam Molly Gordie]
+
+3.times do |driver|
+  Driver.create(
+    first_name: driver_first[driver],
+    last_name: 'Doge',
+    license_number: 'D8478375'
+  )
+end
+
+4.times do |vehicle|
+  Vehicle.create(
+    vin: '9876543211283625',
+    vehicle_number: vehicle.to_s
   )
 end
 
@@ -241,5 +258,7 @@ User.create(email: 'admin@admin.com', password: 'password', password_confirmatio
 
 puts '1 User created'
 puts '1 Admin created'
+puts '3 Drivers created'
+puts '4 Vehicles created'
 puts '20 MTM Trips have been created'
 puts '5 Trips have been created'
