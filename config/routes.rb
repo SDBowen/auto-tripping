@@ -3,9 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
       resources :users
-      resources :completed_trips
       resources :drivers
-      resources :scheduled_trips
       resources :trips
       resources :vehicles
 

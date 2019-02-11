@@ -15,19 +15,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "completed_trips", force: :cascade do |t|
-    t.time "actual_pickup_time"
-    t.time "departure_time"
-    t.time "actual_dropoff_time"
-    t.string "signature_type"
-    t.bigint "scheduledtrip_id"
-    t.bigint "vehicle_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["scheduledtrip_id"], name: "index_completed_trips_on_scheduledtrip_id"
-    t.index ["vehicle_id"], name: "index_completed_trips_on_vehicle_id"
-  end
-
+  
   create_table "drivers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -35,17 +23,8 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "scheduled_trips", force: :cascade do |t|
-    t.time "scheduled_pickup"
-    t.bigint "trip_id"
-    t.bigint "driver_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["driver_id"], name: "index_scheduled_trips_on_driver_id"
-    t.index ["trip_id"], name: "index_scheduled_trips_on_trip_id"
-  end
-
+  
+  
   create_table "trips", force: :cascade do |t|
     t.string "provider"
     t.string "trip_number"
@@ -59,6 +38,10 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.string "delivery_city"
     t.string "appointment_date"
     t.string "appointment_time"
+    t.time "scheduled_pickup"
+    t.time "actual_pickup_time"
+    t.time "departure_time"
+    t.time "actual_dropoff_time"
     t.string "reason_code"
     t.string "provider_status"
     t.string "vehicle_type"
@@ -69,10 +52,14 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.float "cost"
     t.text "special_needs"
     t.text "instructions"
+    t.string "signature_type"
+    t.bigint "vehicle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
   end
+
+
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
