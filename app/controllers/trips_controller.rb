@@ -44,8 +44,8 @@ class TripsController < ApplicationController
                                  :appointment_time, :vehicle_type, :trip_type,
                                  :additional_passengers, :additional_appointments, :mileage,
                                  :cost, :scheduled_pickup, :actual_pickup_time,
-                                 :departure_time, :actual_dropoff_time, :driver,
-                                 :vehicle, :signature_type, :instructions)
+                                 :departure_time, :actual_dropoff_time, :driver_id,
+                                 :vehicle_id, :signature_type, :instructions)
   end
 
   def set_trip

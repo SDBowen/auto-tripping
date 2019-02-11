@@ -99,13 +99,13 @@
     </div>
     <div class="row mt-3">
       <div class="col">
-        <%= f.text_field :driver_id, class:"form-control", placeholder: 'Driver' %>
+        <%= f.collection_select :driver_id, Driver.order(:first_name), :id, :first_name, include_blank: true, class:"form-control" %>
       </div>
       <div class="col">
-        <%= f.text_field :vehicle_id, class:"form-control", placeholder: 'Vehicle Number' %>
+        <%= f.collection_select :vehicle_id, Vehicle.order(:vehicle_number), :id, :vehicle_number, include_blank: true, class:"form-control" %>
       </div>
       <div class="col">
-        <%= f.text_field :signature_type, class:"form-control", placeholder: 'Signature Type' %>
+        <%= f.select :signature_type, ['M', 'P', 'C'], include_blank: true, class:"form-control" %>
       </div>
     </div>
     <div class="row mt-3">

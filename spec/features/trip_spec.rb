@@ -25,7 +25,7 @@ describe 'Navigation:' do
 
       visit trips_path
 
-      expect(page).to have_content(/HAHA1997444A|HAHA1997444B/)
+      expect(page).to have_content(/9876 S|125 N COOL/)
     end
   end
 
@@ -76,6 +76,28 @@ describe 'Navigation:' do
       click_on 'Save'
 
       expect(page).to have_content(/Stu|Little/)
+    end
+
+    it 'can select a driver' do
+      driver_id = Driver.create(first_name: 'tester_driver').id
+
+      visit edit_trip_path(@trip)
+
+      select 'tester_driver', from: 'trip_driver_id'
+      click_on 'Save'
+
+      expect(page).to have_content(/driver_id: #{driver_id}/)
+    end
+
+    it 'can select a vehicle' do
+      vehicle_id = Vehicle.create(vehicle_number: '12').id
+
+      visit edit_trip_path(@trip)
+
+      select '12', from: 'trip_vehicle_id'
+      click_on 'Save'
+
+      expect(page).to have_content(/vehicle_id: #{vehicle_id}/)
     end
   end
 end

@@ -1,5 +1,8 @@
 <tr>
   <td>
+    <%= trip.driver_id %>
+  </td>
+  <td>
     <%= trip.full_name %>
   </td>
   <td>
@@ -27,13 +30,10 @@
     <%= trip.mileage %>
   </td>
   <td>
-    <%= trip.instructions %>
+    XX
   </td>
   <td>
-    Notes Entry
-  </td>
-  <td>
-    <%= trip.trip_number %>
+    XX
   </td>
   <td>
     <%= link_to 'Edit', edit_trip_path(trip), id: "edit_button_#{trip.id}" %>
