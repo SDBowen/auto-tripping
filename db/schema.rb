@@ -38,10 +38,6 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.string "delivery_city"
     t.string "appointment_date"
     t.string "appointment_time"
-    t.time "scheduled_pickup"
-    t.time "actual_pickup_time"
-    t.time "departure_time"
-    t.time "actual_dropoff_time"
     t.string "reason_code"
     t.string "provider_status"
     t.string "vehicle_type"
@@ -53,7 +49,12 @@ ActiveRecord::Schema.define(version: 2019_02_10_232310) do
     t.text "special_needs"
     t.text "instructions"
     t.string "signature_type"
+    t.string "driver"
     t.bigint "vehicle"
+    t.time "scheduled_pickup"
+    t.time "actual_pickup_time"
+    t.time "departure_time"
+    t.time "actual_dropoff_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0

@@ -10,7 +10,13 @@
         <%= f.text_field :provider, type:"text", class:"form-control", placeholder: 'Provider' %>
       </div>
       <div class="col">
+        <%= f.text_field :provider_status, type:"text", class:"form-control", placeholder: 'Provider Status' %>
+      </div>
+      <div class="col">
         <%= f.text_field :trip_number, type:"text", class:"form-control", placeholder: 'Trip Number' %>
+      </div>
+      <div class="col">
+        <%= f.text_field :reason_code, type:"text", class:"form-control", placeholder: 'Reason Code' %>
       </div>
     </div>
     <div class="row mt-3">
@@ -34,8 +40,13 @@
       <div class="col">
         <%= f.text_field :pickup_zip, type:"text", class:"form-control", placeholder: 'Pick Up Zip' %>
       </div>
+    </div>
+    <div class="row mt-3">
       <div class="col">
         <%= f.text_field :delivery_address, type:"text", class:"form-control", placeholder: 'Drop Off Address' %>
+      </div>
+      <div class="col">
+        <%= f.text_field :delivery_city, type:"text", class:"form-control", placeholder: 'Drop Off City' %>
       </div>
     </div>
     <div class="row mt-3">
@@ -43,7 +54,7 @@
         <%= f.text_field :appointment_date, type:"text", class:"form-control", placeholder: 'Appointment Date' %>
       </div>
       <div class="col">
-        <%= f.datetime_local_field :appointment_time, type:"text", class:"form-control", placeholder: 'Appointment Time' %>
+        <%= f.text_field :appointment_time, type:"text", class:"form-control", placeholder: 'Appointment Time' %>
       </div>
       <div class="col">
         <%= f.text_field :vehicle_type, type:"text", class:"form-control", placeholder: 'Vehicle Type' %>
@@ -57,13 +68,52 @@
         <%= f.text_field :additional_passengers, type:"text", class:"form-control", placeholder: 'Additional Passengers' %>
       </div>
       <div class="col">
+        <%= f.text_field :additional_appointments, type:"text", class:"form-control", placeholder: 'Additional Appointments' %>
+      </div>
+      <div class="col">
         <%= f.number_field :mileage, type:"text", class:"form-control", placeholder: 'Mileage' %>
       </div>
       <div class="col">
         <%= f.number_field :cost, type:"text", class:"form-control", placeholder: 'Cost' %>
       </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col form-group">
+        <%= f.label :scheduled_pickup %>
+        <%= f.time_select :scheduled_pickup, class:"form-control" %>
+      </div>
+      <div class="col form-group">
+        <%= f.label :actual_pickup_time %>
+        <%= f.time_select :actual_pickup_time, class:"form-control"%>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="col form-group">
+        <%= f.label :departure_time %>
+        <%= f.time_select :departure_time, class:"form-control" %>
+      </div>
+      <div class="col form-group">
+        <%= f.label :actual_dropoff_time %>
+        <%= f.time_select :actual_dropoff_time, class:"form-control" %>
+      </div>
+    </div>
+    <div class="row mt-3">
       <div class="col">
-        <%= f.text_area :instructions, type:"text", class:"form-control", placeholder: 'Special Needs/ Additional Instructions' %>
+        <%= f.text_field :driver, class:"form-control", placeholder: 'Driver' %>
+      </div>
+      <div class="col">
+        <%= f.text_field :vehicle, class:"form-control", placeholder: 'Vehicle Number' %>
+      </div>
+      <div class="col">
+        <%= f.text_field :signature_type, class:"form-control", placeholder: 'Signature Type' %>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <%= f.text_area :special_needs, type:"text", class:"form-control", placeholder: 'Special Needs' %>
+      </div>
+      <div class="col">
+        <%= f.text_area :instructions, type:"text", class:"form-control", placeholder: 'Additional Instructions' %>
       </div>
     </div>
     <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3' %>

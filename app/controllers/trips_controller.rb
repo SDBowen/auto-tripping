@@ -37,11 +37,15 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:id, :provider, :trip_number, :first_name, :last_name,
+    params.require(:trip).permit(:id, :provider, :provider_status, :trip_number,
+                                 :reason_code, :first_name, :last_name,
                                  :phone_number, :pickup_address, :pickup_city, :pickup_zip,
-                                 :delivery_address, :appointment_date, :appointment_time,
-                                 :vehicle_type, :trip_type, :additional_passengers,
-                                 :mileage, :cost, :instructions)
+                                 :delivery_address, :delivery_city, :appointment_date,
+                                 :appointment_time, :vehicle_type, :trip_type,
+                                 :additional_passengers, :additional_appointments, :mileage,
+                                 :cost, :scheduled_pickup, :actual_pickup_time,
+                                 :departure_time, :actual_dropoff_time, :driver,
+                                 :vehicle, :signature_type, :instructions)
   end
 
   def set_trip
