@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -32,6 +34,18 @@ class ApplicationPolicy
 
   def destroy?
     false
+  end
+
+  def admin_types
+    ['admin']
+  end
+
+  def dispatch_types
+    %w[dispatch admin]
+  end
+
+  def driver_types
+    %w[driver dispatch admin]
   end
 
   class Scope
