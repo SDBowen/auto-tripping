@@ -68,3 +68,4 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem "gritter", "1.2.0"
 gem 'administrate', '~> 0.11.0'
+gem 'pundit', '~> 2.0', '>= 2.0.1'
