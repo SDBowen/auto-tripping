@@ -8,6 +8,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'User', last_name: 'Tester')
+
+User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'Tester', role: ['dispatch'])
+
+User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
+
+driver1 = User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', display_name: 'DriverOne', role: ['driver'])
+
+driver2 = User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver2', last_name: 'Tester', display_name: 'DriverTwo', role: ['driver'])
+
 delivery_addresses = ['1320 N 7th ST', '10348 W Smoke Ranch DR',
                       '2844 Chinkapin AVE', '5478 Aleut PL',
                       '5932 Kootenai LN', '21 W Boise AVE',
@@ -231,7 +241,8 @@ end
     appointment_time: '300',
     vehicle_type: 'P',
     mileage: 6.2,
-    cost: 25.00
+    cost: 25.00,
+    user_id: (trip.even? ? driver1.id : driver2.id)
   )
 end
 
@@ -241,16 +252,6 @@ end
     vehicle_number: vehicle.to_s
   )
 end
-
-User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'User', last_name: 'Tester')
-
-User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'Tester', role: ['dispatch'])
-
-User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
-
-User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', role: ['driver'])
-
-User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver2', last_name: 'Tester', role: ['driver'])
 
 puts '1 User created'
 puts '1 Dispatch created'
