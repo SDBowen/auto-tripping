@@ -5,6 +5,10 @@ class TripPolicy < ApplicationPolicy
     (user.role & dispatch_types).present?
   end
 
+  def edit?
+    (user.role & dispatch_types).present? || record.user_id == user.id
+  end
+
   def permitted_attributes
     if (user.role & dispatch_types).present?
       %i[id provider provider_status trip_number

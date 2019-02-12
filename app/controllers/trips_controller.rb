@@ -25,7 +25,9 @@ class TripsController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    authorize @trip
+  end
 
   def update
     if @trip.update(trip_params)
