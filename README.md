@@ -5,8 +5,7 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 ## TODO
 
 - Customize admin dashboard property views
-- Implement user role permissions
-- Display only users with Driver role in trip edit
+- Display only users with Driver role in Driver field on trip edit screen
 
 ## Models:
 

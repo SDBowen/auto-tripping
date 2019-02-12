@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class TripPolicy < ApplicationPolicy
+  def new?
+    (user.role & dispatch_types).present?
+  end
+
   def permitted_attributes
     if (user.role & dispatch_types).present?
       %i[id provider provider_status trip_number
