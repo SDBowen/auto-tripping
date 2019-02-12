@@ -80,7 +80,7 @@
     <div class="row mt-5">
       <div class="col form-group">
         <%= f.label :scheduled_pickup %>
-        <%= f.time_select :scheduled_pickup, class:"form-control" %>
+        <%= f.time_select :scheduled_pickup, minute_step: 5, class:"form-control" %>
       </div>
       <div class="col form-group">
         <%= f.label :actual_pickup_time %>
