@@ -16,4 +16,14 @@ FactoryBot.define do
     last_name { 'Testing' }
     role { ['admin'] }
   end
+  factory :driver_user, class: 'User' do
+    email { 'testing3@testing.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    display_name { 'TDriver' }
+    license { 'D12345678' }
+    first_name { 'Dummy' }
+    last_name { 'Test' }
+    role { ['driver'] }
+  end
 end

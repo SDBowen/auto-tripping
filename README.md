@@ -10,7 +10,6 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 ## Models:
 
 - User ->
-- Driver ->
 - Vehicle ->
 - Trip ->
 

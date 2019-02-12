@@ -60,7 +60,7 @@ describe 'Navigation:' do
   describe 'Edit' do
     before do
       @trip = create(:trip)
-      @driver_id = create(:driver).id
+      @user_id = create(:driver_user).id
       @vehicle_id = create(:vehicle).id
     end
     it 'can be reached by edit button' do
@@ -83,10 +83,10 @@ describe 'Navigation:' do
     end
 
     it 'can select a driver' do
-      select 'Dummy', from: 'trip_driver_id'
+      select 'Dummy', from: 'trip_user_id'
       click_on 'Save'
 
-      expect(page).to have_content(/driver_id: #{@driver_id}/)
+      expect(page).to have_content(/user_id: #{@user_id}/)
     end
 
     it 'can select a vehicle' do

@@ -235,16 +235,6 @@ end
   )
 end
 
-driver_first = %w[Sam Molly Gordie]
-
-3.times do |driver|
-  Driver.create(
-    first_name: driver_first[driver],
-    last_name: 'Doge',
-    license_number: 'D8478375'
-  )
-end
-
 4.times do |vehicle|
   Vehicle.create(
     vin: '9876543211283625',
@@ -256,9 +246,13 @@ User.create(email: 'user@user.com', password: 'password', password_confirmation:
 
 User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
 
+User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', role: ['driver'])
+
+User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver2', last_name: 'Tester', role: ['driver'])
+
 puts '1 User created'
 puts '1 Admin created'
-puts '3 Drivers created'
+puts '2 Drivers created'
 puts '4 Vehicles created'
 puts '20 MTM Trips have been created'
 puts '5 Trips have been created'
