@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update]
 
   def index
-    @trips = Trip.last(50)
+    @trips = Trip.assigned_to(current_user)
   end
 
   def new

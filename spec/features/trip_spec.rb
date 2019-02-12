@@ -17,10 +17,6 @@ describe 'Navigation:' do
       expect(page.status_code).to eq(200)
     end
 
-    it 'has a title of Trips' do
-      expect(page).to have_content "Trips page"
-    end
-
     it 'has a list of trips' do
       create(:trip)
       create(:second_trip)
@@ -28,6 +24,17 @@ describe 'Navigation:' do
       visit trips_path
 
       expect(page).to have_content "9876 S" && "125 N COOL"
+    end
+
+    it 'is scoped to show only trips assigned to driver' do
+      create(:third_trip)
+      logout(:dispatch)
+      login_as(@driver, scope: :user)
+
+      visit trips_path
+
+      expect(page).to_not have_content "987 NOT ASSIGNED ST"
+      
     end
   end
 

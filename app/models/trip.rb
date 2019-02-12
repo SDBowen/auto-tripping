@@ -7,6 +7,8 @@ class Trip < ApplicationRecord
   enum status: { entered: 0, scheduled: 1, completed: 2, billed: 3, locked: 4 }
   validates :trip_number, presence: true
 
+  scope :assigned_to, ->(user) { where(user_id: user.id) unless (user.role & %w[dispatch admin]).present? }
+
   def full_name
     return '' if first_name.nil? || last_name.nil?
 
