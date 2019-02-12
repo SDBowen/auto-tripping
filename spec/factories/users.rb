@@ -7,7 +7,6 @@ FactoryBot.define do
     password_confirmation { 'password' }
     first_name { 'Test' }
     last_name { 'Testing' }
-    role { ['dispatch'] }
   end
   factory :admin_user, class: 'User' do
     email { 'testing1@testing.com' }
@@ -23,7 +22,7 @@ FactoryBot.define do
     password_confirmation { 'password' }
     first_name { 'DispatchTest' }
     last_name { 'Testing' }
-    role { ['dipatch'] }
+    role { ['dispatch'] }
   end
   factory :driver_user, class: 'User' do
     email { 'testing3@testing.com' }

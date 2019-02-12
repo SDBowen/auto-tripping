@@ -4,8 +4,10 @@ require 'rails_helper'
 
 describe 'Navigation:' do
   before do
-    user = create(:user)
-    login_as(user, scope: :user)
+    @driver = create(:driver_user)
+    @vehicle = create(:vehicle)
+    dispatch = create(:dispatch_user)
+    login_as(dispatch, scope: :user)
   end
   describe 'Index' do
     before do
@@ -16,7 +18,7 @@ describe 'Navigation:' do
     end
 
     it 'has a title of Trips' do
-      expect(page).to have_content(/Trips page/)
+      expect(page).to have_content "Trips page"
     end
 
     it 'has a list of trips' do
@@ -25,7 +27,7 @@ describe 'Navigation:' do
 
       visit trips_path
 
-      expect(page).to have_content(/9876 S|125 N COOL/)
+      expect(page).to have_content "9876 S" && "125 N COOL"
     end
   end
 
@@ -53,15 +55,13 @@ describe 'Navigation:' do
       fill_in 'trip[cost]', with: '19.02'
       click_on 'Save'
 
-      expect(page).to have_content('Sauce')
+      expect(page).to have_content 'Sauce'
     end
   end
 
   describe 'Edit' do
     before do
       @trip = create(:trip)
-      @user_id = create(:admin_user).id
-      @vehicle_id = create(:vehicle).id
     end
     it 'can be reached by edit button' do
       visit trips_path
@@ -79,26 +79,38 @@ describe 'Navigation:' do
       fill_in 'trip[last_name]', with: 'Little'
       click_on 'Save'
 
-      expect(page).to have_content(/Stu|Little/)
+      expect(page).to have_content "Stu" && "Little"
     end
 
-    xit 'can select a driver' do
-      select 'Dummy', from: 'trip_user_id'
+    it 'can select a driver' do
+      select 'DriverTest', from: 'trip_user_id'
       click_on 'Save'
 
-      expect(page).to have_content(/user_id: #{@user_id}/)
+      expect(page).to have_content "user_id: #{@driver.id}"
     end
 
-    xit 'can select a vehicle' do
+    it 'can select a vehicle' do
       select '12', from: 'trip_vehicle_id'
       click_on 'Save'
 
-      expect(page).to have_content(/vehicle_id: #{@vehicle_id}/)
+      expect(page).to have_content "ehicle_id: #{@vehicle.id}"
     end
 
-    it 'updates the allowed parameters for driver' do
-      select '06', from: 'trip_scheduled_pickup_4i'
-      select '05', from: 'trip_scheduled_pickup_5i'
+    it 'updates the allowed parameters for a driver' do
+      logout(:dispatch)
+      login_as(@driver, scope: :user)
+
+      visit edit_trip_path(@trip)
+
+      select '02', from: 'trip_actual_pickup_time_4i'
+      select '10', from: 'trip_actual_pickup_time_5i'
+      select '03', from: 'trip_departure_time_4i'
+      select '15', from: 'trip_departure_time_5i'
+      select '04', from: 'trip_actual_dropoff_time_4i'
+      select '20', from: 'trip_actual_dropoff_time_5i'
+      click_on 'Save'
+
+      expect(page).to have_content '02:10:00' && '03:15:00' && '04:20:00'
     end
   end
 end

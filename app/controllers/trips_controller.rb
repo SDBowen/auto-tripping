@@ -13,7 +13,7 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = Trip.new(permitted_attributes(Trip))
 
     if @trip.save
       redirect_to @trip, notice: 'Trip saved successfully'

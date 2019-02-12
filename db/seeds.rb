@@ -244,6 +244,8 @@ end
 
 User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'User', last_name: 'Tester')
 
+User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'Tester', role: ['dispatch'])
+
 User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
 
 User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', role: ['driver'])
@@ -251,6 +253,7 @@ User.create(email: 'driver@driver.com', password: 'password', password_confirmat
 User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver2', last_name: 'Tester', role: ['driver'])
 
 puts '1 User created'
+puts '1 Dispatch created'
 puts '1 Admin created'
 puts '2 Drivers created'
 puts '4 Vehicles created'
