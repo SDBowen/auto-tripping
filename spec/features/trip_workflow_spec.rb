@@ -26,16 +26,26 @@ describe 'Trip Workflow' do
       expect(@trip.reload.status).to eq('billed')
     end
 
-    it 'should not be editable by driver if the status is complete' do
+    it 'should not be editable by driver if the status is not scheduled' do
       logout(:dispatch_user)
       login_as(@driver_user, scope: :user)
 
       visit edit_trip_path(@trip)
 
-      choose 'trip_status_billed'
+      expect(page).to_not have_content eq('Scheduled')
+    end
+
+    it 'should be editable by driver if the status is scheduled' do
+      @trip.scheduled!
+      logout(:dispatch_user)
+      login_as(@driver_user, scope: :user)
+
+      visit edit_trip_path(@trip)
+
+      choose 'trip_status_completed'
       click_on 'Save'
 
-      expect(@trip.reload.status).to eq('entered')
+      expect(@trip.reload.status).to eq('completed')
     end
 
     xit 'should not be editable by dispatch if the status is billed' do

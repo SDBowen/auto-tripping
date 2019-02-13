@@ -116,7 +116,7 @@
         <%= f.text_area :instructions, type:"text", class:"form-control", placeholder: 'Additional Instructions' %>
       </div>
     </div>
-    <% if current_user.role.include?('dispatch') || @trip.status = 'scheduled' %>
+    <% if current_user.role.include?('dispatch') || @trip.status == 'scheduled' %>
       <%= render partial: 'status', locals: { f: f } %>
     <% end %>
     <div class="row mt-3">
