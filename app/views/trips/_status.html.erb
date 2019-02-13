@@ -1,0 +1,24 @@
+<div class="row mt-3">
+  <div class="col">
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :status, 'entered', class:"form-check-input" %>
+      <%= f.label :entered, class:"form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :status, 'scheduled', class:"form-check-input" %>
+      <%= f.label :scheduled, class:"form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :status, 'completed', class:"form-check-input" %>
+      <%= f.label :completed, class:"form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :status, 'billed', class:"form-check-input" %>
+      <%= f.label :billed, class:"form-check-label" %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.radio_button :status, 'locked', class:"form-check-input" %>
+      <%= f.label :locked, class:"form-check-label" %>
+    </div>
+  </div>
+</div>

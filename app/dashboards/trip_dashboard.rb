@@ -33,6 +33,7 @@ class TripDashboard < Administrate::BaseDashboard
     cost: Field::Number.with_options(decimals: 2),
     special_needs: Field::Text,
     instructions: Field::Text,
+    status: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -43,7 +44,7 @@ class TripDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
+    status
     provider
     trip_number
     first_name
@@ -52,7 +53,7 @@ class TripDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
+    status
     provider
     trip_number
     first_name
@@ -83,6 +84,7 @@ class TripDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
+    status
     provider
     trip_number
     first_name

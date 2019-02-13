@@ -11,7 +11,7 @@ class TripPolicy < ApplicationPolicy
 
   def permitted_attributes
     if (user.role & dispatch_types).present?
-      %i[id provider provider_status trip_number
+      %i[id status provider provider_status trip_number
          reason_code first_name last_name
          phone_number pickup_address pickup_city pickup_zip
          delivery_address delivery_city appointment_date

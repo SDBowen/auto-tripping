@@ -4,9 +4,11 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 
 ## TODO
 
-- Customize admin dashboard property views
+- Customize admin dashboard property views (enum field?)
 - Display only users with Driver role in Driver field on trip edit screen
 - Refactor role check in Trip model
+- Refactor partial/\_form role check
+- Refactor to clean tests code
 
 ## Models:
 
