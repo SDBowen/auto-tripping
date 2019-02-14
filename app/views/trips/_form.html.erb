@@ -116,9 +116,7 @@
         <%= f.text_area :instructions, type:"text", class:"form-control", placeholder: 'Additional Instructions' %>
       </div>
     </div>
-    <% if current_user.role.include?('dispatch') || @trip.scheduled? %>
-      <%= render partial: 'status', locals: { f: f } %>
-    <% end %>
+    <%= render partial: 'status', locals: { f: f } if policy(@trip).update? %>
     <div class="row mt-3">
       <div class="col">
         <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3' %>
