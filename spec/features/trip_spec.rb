@@ -83,9 +83,9 @@ describe 'Navigation:' do
       fill_in 'trip[pickup_zip]', with: '98765'
       fill_in 'trip[delivery_address]', with: 'Dropoff Ln'
       fill_in 'trip[delivery_city]', with: 'Boise'
-      click_on 'Save'
+      
 
-      expect(page).to have_content 'Sauce'
+      expect {click_on 'Save'}.to change(Trip, :count).by(1) 
     end
   end
 
