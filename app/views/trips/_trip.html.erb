@@ -3,6 +3,9 @@
     <%= User.find_by_id(trip.user_id) ? User.find_by_id(trip.user_id).name : 'Not assigned' %>
   </td>
   <td>
+    <%= trip.status.capitalize %>
+  </td>
+  <td>
     <%= trip.full_name %>
   </td>
   <td>
