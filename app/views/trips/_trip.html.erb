@@ -1,9 +1,9 @@
 <tr>
   <td>
-    <%= User.find_by_id(trip.user_id) ? User.find_by_id(trip.user_id).name : 'Not assigned' %>
+    <%= status_label trip.status %>
   </td>
   <td>
-    <%= trip.status.capitalize %>
+    <%= User.find_by_id(trip.user_id) ? User.find_by_id(trip.user_id).name : 'Not assigned' %>
   </td>
   <td>
     <%= trip.full_name %>
@@ -38,7 +38,5 @@
   <td>
     XX
   </td>
-  <td>
-    <%= link_to 'Edit', edit_trip_path(trip), id: "edit_button_#{trip.id}" %>
-  </td>
+  <%= render partial: 'trip_edit_button', locals: { trip: trip } %>
 </tr>

@@ -12,7 +12,6 @@ describe 'Navigation:' do
     @trip_with_driver_assigned = create(:second_trip)
     @trip_with_driver_assigned.user_id = @driver.id
     @trip_with_driver_assigned.scheduled!
-    @trip_with_driver_assigned.save
 
     @trip_three = create(:third_trip)
 
@@ -45,6 +44,17 @@ describe 'Navigation:' do
       visit trips_path
 
       expect(page).to have_content '125 N COOL ST'
+    end
+
+    it 'will not display Edit button unless trip is Scheduled status' do
+      @trip_with_driver_assigned.entered!
+
+      logout(:dispatch)
+      login_as(@driver, scope: :user)
+
+      visit trips_path
+
+      expect(page).to_not have_selector(:link_or_button, 'Edit')
     end
   end
 
