@@ -63,10 +63,10 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 - pickup_zip -> number, required
 - deliver_address -> string, required
 - delivery_city -> string, required
-- scheduled_pickup -> time, required
 
 #### Trip (final)
 
+- scheduled_pickup -> time, required
 - mileage -> float, required
 - cost -> float, required
 - actual_pickup_time -> time, required

@@ -76,10 +76,13 @@ describe 'Navigation:' do
     end
 
     it 'can be created from the new page' do
-      fill_in 'trip[trip_number]', with: '123456789'
       fill_in 'trip[first_name]', with: 'Taco'
       fill_in 'trip[last_name]', with: 'Sauce'
-      fill_in 'trip[cost]', with: '19.02'
+      fill_in 'trip[pickup_address]', with: 'A Street Nm.'
+      fill_in 'trip[pickup_city]', with: 'Boise'
+      fill_in 'trip[pickup_zip]', with: '98765'
+      fill_in 'trip[delivery_address]', with: 'Dropoff Ln'
+      fill_in 'trip[delivery_city]', with: 'Boise'
       click_on 'Save'
 
       expect(page).to have_content 'Sauce'
