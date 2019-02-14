@@ -8,11 +8,13 @@ describe 'Navigation:' do
     @dispatch = create(:dispatch_user)
     @vehicle = create(:vehicle)
     @trip_one = create(:trip)
-    @trip_three = create(:third_trip)
 
-    @trip_two = create(:second_trip)
-    @trip_two.user_id = @driver.id
-    @trip_two.save
+    @trip_with_driver_assigned = create(:second_trip)
+    @trip_with_driver_assigned.user_id = @driver.id
+    @trip_with_driver_assigned.scheduled!
+    @trip_with_driver_assigned.save
+
+    @trip_three = create(:third_trip)
 
     login_as(@dispatch, scope: :user)
   end
@@ -114,7 +116,7 @@ describe 'Navigation:' do
       logout(:dispatch)
       login_as(@driver, scope: :user)
 
-      visit edit_trip_path(@trip_two)
+      visit edit_trip_path(@trip_with_driver_assigned)
 
       select '02', from: 'trip_actual_pickup_time_4i'
       select '10', from: 'trip_actual_pickup_time_5i'
