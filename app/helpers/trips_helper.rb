@@ -13,7 +13,7 @@ module TripsHelper
       content_tag(:span, status.capitalize, class: 'badge badge-warning')
     when 'scheduled'
       content_tag(:span, status.capitalize, class: 'badge badge-primary')
-    when 'complete'
+    when 'completed'
       content_tag(:span, status.capitalize, class: 'badge badge-success')
     end
   end
