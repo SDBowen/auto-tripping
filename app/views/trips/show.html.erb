@@ -1,5 +1,117 @@
-<%= @trip.inspect %>
-<hr>
-<%= User.find_by(id: @trip.user_id).inspect  %>
-<hr>
-<%= Vehicle.find_by(id: @trip.vehicle_id).inspect  %>
+<h2>Trip Detail</h2>
+<div class="col-md-3 card card-body bg-light">
+  <div class="show-trip-item">
+    <span class="show-trip-label"> Driver: </span>
+    <span class="show-trip-value">
+      <%= User.find_by_id(@trip.user_id) ? User.find_by_id(@trip.user_id).name : 'Not assigned' %>
+    </span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> Provider: </span>
+    <span class="show-trip-value"> <%= @trip.provider %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> Provider_status: </span>
+    <span class="show-trip-value"> <%= @trip.provider_status %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> trip_number: </span>
+    <span class="show-trip-value"> <%= @trip.trip_number %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> first_name: </span>
+    <span class="show-trip-value"> <%= @trip.first_name %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> last_name: </span>
+    <span class="show-trip-value"> <%= @trip.last_name %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> phone_number: </span>
+    <span class="show-trip-value"> <%= @trip.phone_number %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> pickup_address: </span>
+    <span class="show-trip-value"> <%= @trip.pickup_address %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> pickup_city: </span>
+    <span class="show-trip-value"> <%= @trip.pickup_city %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> pickup_zip: </span>
+    <span class="show-trip-value"> <%= @trip.pickup_zip %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> delivery_address: </span>
+    <span class="show-trip-value"> <%= @trip.delivery_address %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> delivery_city: </span>
+    <span class="show-trip-value"> <%= @trip.delivery_city %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> appointment_date: </span>
+    <span class="show-trip-value"> <%= @trip.appointment_date %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> appointment_time: </span>
+    <span class="show-trip-value"> <%= @trip.appointment_time %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> reason_code: </span>
+    <span class="show-trip-value"> <%= @trip.reason_code %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> vehicle_type: </span>
+    <span class="show-trip-value"> <%= @trip.vehicle_type %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> trip_type: </span>
+    <span class="show-trip-value"> <%= @trip.trip_type %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> additional_passengers: </span>
+    <span class="show-trip-value"> <%= @trip.additional_passengers %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> additional_appointments: </span>
+    <span class="show-trip-value"> <%= @trip.additional_appointments %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> mileage: </span>
+    <span class="show-trip-value"> <%= @trip.mileage %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> cost: </span>
+    <span class="show-trip-value"> <%= @trip.cost %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> special_needs: </span>
+    <span class="show-trip-value"> <%= @trip.special_needs %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> instructions: </span>
+    <span class="show-trip-value"> <%= @trip.instructions %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> signature_type: </span>
+    <span class="show-trip-value"> <%= @trip.signature_type %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> scheduled_pickup: </span>
+    <span class="show-trip-value"> <%= @trip.scheduled_pickup %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> actual_pickup_time: </span>
+    <span class="show-trip-value"> <%= @trip.actual_pickup_time %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> departure_time: </span>
+    <span class="show-trip-value"> <%= @trip.departure_time %></span>
+  </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> actual_dropoff_time: </span>
+    <span class="show-trip-value"> <%= @trip.actual_dropoff_time %></span>
+  </div>
+</div>

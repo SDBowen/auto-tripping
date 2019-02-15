@@ -112,17 +112,15 @@ describe 'Navigation:' do
     end
 
     it 'can select a driver' do
-      select 'DriverTest', from: 'trip_user_id'
-      click_on 'Save'
+      select @driver.first_name, from: 'trip_user_id'
 
-      expect(page).to have_content "user_id: #{@driver.id}"
+      expect {click_on 'Save'}.to change{ @trip_one.reload.user_id }.to eq(@driver.id)
     end
 
     it 'can select a vehicle' do
-      select '12', from: 'trip_vehicle_id'
-      click_on 'Save'
+      select @vehicle.vehicle_number, from: 'trip_vehicle_id'
 
-      expect(page).to have_content "vehicle_id: #{@vehicle.id}"
+      expect {click_on 'Save'}.to change{ @trip_one.reload.vehicle_id }.to eq(@vehicle.id)
     end
 
     it 'updates the allowed parameters for a driver' do
