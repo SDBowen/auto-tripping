@@ -115,3 +115,4 @@
     <span class="show-trip-value"> <%= @trip.actual_dropoff_time %></span>
   </div>
 </div>
+<%= link_to 'Edit', edit_trip_path(@trip), class: 'btn btn-primary mt-4' if policy(@trip).update? %>
