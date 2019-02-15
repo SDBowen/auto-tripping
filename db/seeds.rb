@@ -200,8 +200,11 @@ trip_costs = [
   48.98
 ]
 
+trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, driver1, driver2]
+
 20.times do |trip|
   Trip.create(
+    status: trip_driver[trip].nil? ? 0 : 1, 
     trip_number: trip_numbers[trip],
     first_name: first_names[trip],
     last_name: last_names[trip],
@@ -222,7 +225,8 @@ trip_costs = [
     mileage: trip_miles[trip],
     cost: trip_costs[trip],
     special_needs: 'CALL TO CONFIRM W PICK UP TIME/CALL UPON ARRIVAL',
-    instructions: 'RTP M,T W F 9AM-3:00PM    DOOR TO DOOR ASSISTANCE'
+    instructions: 'RTP M,T W F 9AM-3:00PM    DOOR TO DOOR ASSISTANCE',
+    user_id: trip_driver[trip].nil? ? nil : trip_driver[trip].id 
   )
 end
 
@@ -242,6 +246,7 @@ end
     vehicle_type: 'P',
     mileage: 6.2,
     cost: 25.00,
+    status: 1,
     user_id: (trip.even? ? driver1.id : driver2.id)
   )
 end

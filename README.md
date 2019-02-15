@@ -8,7 +8,7 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 - Display only users with Driver role in Driver field on trip edit screen
 - Refactor role check in Trip model
 - Refactor to clean tests code
-- Add rspec for Trip model validations
+- Review rspec for Trip model validations
 
 ## Models:
 
