@@ -8,7 +8,7 @@ describe 'Navigation:' do
     @dispatch = create(:dispatch_user)
     @vehicle = create(:vehicle)
     @trip_one = create(:trip)
-
+    
     @trip_with_driver_assigned = create(:second_trip)
     @trip_with_driver_assigned.user_id = @driver.id
     @trip_with_driver_assigned.scheduled!
@@ -55,6 +55,12 @@ describe 'Navigation:' do
       visit trips_path
 
       expect(page).to_not have_selector(:link_or_button, 'Edit')
+    end
+
+    it 'allows driver select and record update by dispatch' do
+      select @driver.first_name, from: "index-driver-select-#{@trip_one.id}"
+
+      expect(@trip_one.reload.user_id).to eq(@driver.id)
     end
   end
 

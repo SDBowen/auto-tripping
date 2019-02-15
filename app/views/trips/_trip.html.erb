@@ -3,7 +3,7 @@
     <%= link_to status_label(trip.status), trip %>
   </td>
   <td>
-    <%= User.find_by_id(trip.user_id) ? User.find_by_id(trip.user_id).name : 'Not assigned' %>
+    <%= render partial: 'select_driver', locals: { trip: trip }  %>
   </td>
   <td>
     <%= trip.full_name %>
