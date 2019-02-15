@@ -9,6 +9,7 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 - Refactor role check in Trip model
 - Refactor to clean tests code
 - Review rspec for Trip model validations
+- Review server-side processing for datatables
 
 ## Models:
 

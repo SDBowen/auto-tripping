@@ -68,5 +68,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem "gritter", "1.2.0"
 gem 'administrate', '~> 0.11.0'
-gem 'octicons_helper', '~> 8.4', '>= 8.4.1'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
+gem 'octicons_helper', '~> 8.4', '>= 8.4.1'
+gem 'jquery-datatables'
