@@ -39,6 +39,6 @@
     XX
   </td>
   <td>
-    <%= link_to 'Edit', edit_trip_path(trip), id: "edit_button_#{trip.id}" if policy(trip).update? %>
+    <%= link_to octicon("pencil", height: 24), edit_trip_path(trip), class: 'index-edit-icon', id: "edit_button_#{trip.id}" if policy(trip).update? %>
   </td>
 </tr>
