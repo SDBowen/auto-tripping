@@ -12,4 +12,22 @@ class Trip < ApplicationRecord
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
   end
+
+  def has_notes
+    tool_tip_generator
+  end
+
+  private
+
+  def tool_tip_generator
+    if special_needs.nil? && instructions.nil?
+      nil
+    elsif special_needs.nil?
+      "<h5>Instructions</h5> <p>#{instructions}</p>"
+    elsif instructions.nil?
+      "<h5>Special Needs</h5><p>#{special_needs}</p>"
+    else
+      "<h5>Special Needs</h5><p>#{special_needs}</p> <br/> <h5>Instructions</h5> <p>#{instructions}</p>"
+    end
+  end
 end
