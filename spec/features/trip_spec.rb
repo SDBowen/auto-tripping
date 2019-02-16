@@ -57,7 +57,7 @@ describe 'Navigation:' do
       expect(page).to_not have_selector(:link_or_button, 'Edit')
     end
 
-    it 'allows driver select and record update by dispatch', js: true do
+    it 'allows dispatch to select driver from trips index page', js: true do
       select @driver.first_name, from: "index-driver-select-#{@trip_one.id}"
 
       expect(@trip_one.reload.user_id).to eq(@driver.id)

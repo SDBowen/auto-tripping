@@ -18,7 +18,7 @@
     <%= trip.phone_number %>
   </td>
   <td>
-    <%= trip.scheduled_pickup %>
+    <%= render partial: 'scheduled_pickup', locals: { trip: trip }  %>
   </td>
   <td>
     <%= trip.appointment_time %>
