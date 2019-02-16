@@ -68,7 +68,7 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 
 #### Trip (final)
 
-- scheduled_pickup -> time, required
+- scheduled_pickup -> datetime, required
 - mileage -> float, required
 - cost -> float, required
 - actual_pickup_time -> time, required

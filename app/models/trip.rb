@@ -7,7 +7,8 @@ class Trip < ApplicationRecord
   enum status: { entered: 0, scheduled: 1, completed: 2, billed: 3, locked: 4 }
   validates :first_name, :last_name, :pickup_address, :pickup_city, :pickup_zip, :delivery_address, :delivery_city, presence: true
 
-  scope :assigned_to, ->(user) { where(user_id: user.id) unless (user.role & %w[dispatch admin]).present? }
+  scope :assigned_to, ->(user, date = 'value') { where(user_id: user.id).
+  where('') unless (user.role & %w[dispatch admin]).present? }
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"

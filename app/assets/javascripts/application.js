@@ -18,4 +18,5 @@
 //= require popper
 //= require bootstrap
 //= require gritter
+//= require bootstrap-datepicker
 //= require_tree .

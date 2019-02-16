@@ -32,7 +32,7 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.js 
+        format.js
         format.html { redirect_to @trip, notice: 'Trip updated successfully' }
       else
         format.html { render :edit }
