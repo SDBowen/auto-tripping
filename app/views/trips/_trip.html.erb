@@ -1,6 +1,6 @@
 <tr>
   <td>
-    <%= link_to status_label(trip.status), trip %>
+    <%= status_label(trip.status) %>
   </td>
   <td>
     <%= render partial: 'select_driver', locals: { trip: trip }  %>
@@ -37,5 +37,8 @@
   </td>
   <td>
     <%= link_to octicon("pencil", height: 24), edit_trip_path(trip), class: 'index-edit-icon', id: "edit_button_#{trip.id}" if policy(trip).update? %>
+  </td>
+  <td>
+    <%= link_to octicon("location", height: 24), trip_path(trip), class: 'index-edit-icon', id: "show_button_#{trip.id}" %>
   </td>
 </tr>
