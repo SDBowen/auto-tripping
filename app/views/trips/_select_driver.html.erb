@@ -1,5 +1,5 @@
 <% if policy(trip).new? && trip.entered? || trip.scheduled? %>
-  <%= form_with method: :put, url: "/trips/#{trip.id}", scope: trip do |f| %>
+  <%= form_with model: trip, method: :put do |f| %>
     <%= f.collection_select :user_id, User.order(:first_name), :id, :first_name, {include_blank: true}, {id: "index-driver-select-#{trip.id}", onchange: 'Rails.fire(this.form, "submit")'} %>
   <% end %>
 <% else %>
