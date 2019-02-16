@@ -2,12 +2,12 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :users
-      resources :trips
-      resources :vehicles
+    resources :users
+    resources :trips
+    resources :vehicles
 
-      root to: "users#index"
-    end
+    root to: 'users#index'
+  end
   resources :trips
   devise_for :users, skip: [:registration]
   root to: 'static#homepage'

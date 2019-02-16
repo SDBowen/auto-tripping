@@ -30,10 +30,13 @@ class TripsController < ApplicationController
   end
 
   def update
-    if @trip.update(trip_params)
-      redirect_to @trip, notice: 'Trip updated successfully'
-    else
-      render :edit
+    respond_to do |format|
+      if @trip.update(trip_params)
+        format.js 
+        format.html { redirect_to @trip, notice: 'Trip updated successfully' }
+      else
+        format.html { render :edit }
+      end
     end
   end
 
