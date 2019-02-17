@@ -17,7 +17,7 @@ class TripPolicy < ApplicationPolicy
          delivery_address delivery_city appointment_date
          appointment_time vehicle_type trip_type
          additional_passengers additional_appointments mileage
-         cost scheduled_pickup actual_pickup_time
+         cost scheduled_pickup_date scheduled_pickup_time actual_pickup_time
          departure_time actual_dropoff_time user_id
          vehicle_id signature_type instructions]
     elsif (user.role & driver_types).present?
