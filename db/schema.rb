@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_02_12_160832) do
     t.text "special_needs"
     t.text "instructions"
     t.string "signature_type"
-    t.time "scheduled_pickup_date"
+    t.date "scheduled_pickup_date"
     t.time "scheduled_pickup_time"
     t.time "actual_pickup_time"
     t.time "departure_time"

@@ -5,7 +5,13 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update]
 
   def index
-    @trips = Trip.assigned_to(current_user)
+    date = trip_search_params[:date]
+
+    if date.present?
+      @trips = Trip.assigned_to(current_user).scheduled_on(date.to_date) 
+    else
+      @trips = Trip.assigned_to(current_user)
+    end
   end
 
   def new
@@ -44,6 +50,10 @@ class TripsController < ApplicationController
 
   def trip_params
     params.require(:trip).permit(policy(@trip).permitted_attributes)
+  end
+
+  def trip_search_params
+    params.permit(:date)
   end
 
   def set_trip

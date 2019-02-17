@@ -20,8 +20,9 @@ document.addEventListener("turbolinks:load", function() {
   $(document).ready(function() {
     $("#index-date-picker")
       .datepicker({ autoclose: true })
-      .on("changeDate", function(e) {
-        console.log(e);
+      .on("changeDate", function(data) {
+        console.log(data);
+        $.post("/trips/", { _method: "get", date: data.date });
       });
   });
 });

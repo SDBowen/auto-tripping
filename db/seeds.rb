@@ -247,6 +247,7 @@ end
     mileage: 6.2,
     cost: 25.00,
     status: 1,
+    scheduled_pickup_date: (trip.even? ? Date.today : (Date.today + 1.day)),
     user_id: (trip.even? ? driver1.id : driver2.id)
   )
 end
