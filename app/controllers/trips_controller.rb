@@ -5,18 +5,13 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update]
 
   def index
-    date = trip_search_params[:date]
+    @date = trip_search_params[:date]
 
-    @trips = if date.present?
-               Trip.assigned_to(current_user).scheduled_on(date.to_date)
+    @trips = if @date.present?
+               Trip.assigned_to(current_user).scheduled_on(@date.to_date)
              else
                Trip.assigned_to(current_user)
              end
-
-    respond_to do |format|
-      format.js { }
-      format.html { }
-    end
   end
 
   def new
