@@ -5,17 +5,6 @@ document.addEventListener("turbolinks:load", function() {
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  // Load datatable
-  $(document).ready(function() {
-    $("#dttb").dataTable({
-      order: [6, "asc"],
-      pageLength: 100,
-      searching: false,
-      paging: false,
-      info: false
-    });
-  });
-
   // date picker
   $(document).ready(function() {
     $("#index-date-picker")

@@ -7,10 +7,15 @@ class TripsController < ApplicationController
   def index
     date = trip_search_params[:date]
 
-    if date.present?
-      @trips = Trip.assigned_to(current_user).scheduled_on(date.to_date) 
-    else
-      @trips = Trip.assigned_to(current_user)
+    @trips = if date.present?
+               Trip.assigned_to(current_user).scheduled_on(date.to_date)
+             else
+               Trip.assigned_to(current_user)
+             end
+
+    respond_to do |format|
+      format.js { }
+      format.html { }
     end
   end
 
