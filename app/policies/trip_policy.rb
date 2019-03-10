@@ -19,7 +19,7 @@ class TripPolicy < ApplicationPolicy
          additional_passengers additional_appointments mileage
          cost scheduled_pickup_date scheduled_pickup_time actual_pickup_time
          departure_time actual_dropoff_time user_id
-         vehicle_id signature_type instructions]
+         vehicle_id signature_type special_needs instructions]
     elsif (user.role & driver_types).present?
       %i[status actual_pickup_time departure_time actual_dropoff_time]
     end
