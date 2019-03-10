@@ -1,9 +1,6 @@
 <% if policy(trip).new? && !trip.completed? || !trip.billed? || !trip.locked? %>
   <%= form_with model: trip, method: :put do |f| %>
-    <%= f.time_select :scheduled_pickup_time, {include_blank: true, minute_step: 5, ampm: true}, {id: "index-pickup-select-#{trip.id}"} %>
-    <%= f.button :button, type: :submit, class: 'btn btn-outline-primary btn-sm ml-2' do %>
-      <%=octicon("clock",)%>
-    <% end %>
+    <%= f.time_select :scheduled_pickup_time, {include_blank: true, minute_step: 5, ampm: true}, {id: "index-pickup-select-#{trip.id}", onchange: 'Rails.fire(this.form, "submit")'} %>
   <% end %>
 <% else %>
   <%= trip.scheduled_pickup_time %>
