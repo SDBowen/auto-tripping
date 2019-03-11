@@ -9,19 +9,11 @@ class TripsController < ApplicationController
     @date = trip_search_params[:date]
     @driver_id = trip_search_params[:driver_id]
 
-    if @driver_id.present?
-      if @date.present?
-        @trips = Trip.assigned_to(current_user).with_driver(@driver_id).scheduled_on(@date.to_date)
-      else
-        @trips = Trip.assigned_to(current_user).with_driver(@driver_id)
-      end
-    else
-      if @date.present?
-        @trips = Trip.assigned_to(current_user).scheduled_on(@date.to_date)
-      else
-        @trips = Trip.assigned_to(current_user)
-      end
-    end
+    query = Trip.assigned_to(current_user)
+    query = query.with_driver(@driver_id) if @driver_id.present?
+    query = query.scheduled_on(@date.to_date) if @date.present?
+
+    @trips = query
   end
 
   def new
