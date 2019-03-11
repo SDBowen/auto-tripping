@@ -2,7 +2,7 @@
   <div class="row">
     <%= form_with method: :get, local: true do |f| %>
       <%= f.date_field :date, value: @date, onchange: 'this.form.submit()' %>
-      <%= f.collection_select :driver_id, User.order(:last_name), :id, :name, { selected: @driver_id, include_blank: true }, { onchange: 'this.form.submit()' } %>
+      <%= f.collection_select :driver_id, User.is_driver, :id, :name, { selected: @driver_id, include_blank: true }, { onchange: 'this.form.submit()' } %>
     <% end %>
   </div>
 </div>

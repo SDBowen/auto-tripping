@@ -1,6 +1,6 @@
 <% if policy(trip).new? && trip.entered? || trip.scheduled? %>
   <%= form_with model: trip, method: :put do |f| %>
-    <%= f.collection_select :user_id, User.order(:last_name), :id, :name, {include_blank: true}, {id: "index-driver-select-#{trip.id}", onchange: 'Rails.fire(this.form, "submit")'} %>
+    <%= f.collection_select :user_id, User.is_driver, :id, :name, {include_blank: true}, {id: "index-driver-select-#{trip.id}", onchange: 'Rails.fire(this.form, "submit")'} %>
   <% end %>
 <% else %>
   <%= User.find_by_id(trip.user_id) ? User.find_by_id(trip.user_id).name : 'Not assigned' %>

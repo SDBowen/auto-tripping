@@ -263,7 +263,7 @@ end
 puts '1 User created'
 puts '1 Dispatch created'
 puts '1 Admin created'
-puts '2 Drivers created'
+puts '3 Drivers created'
 puts '4 Vehicles created'
 puts '20 MTM Trips have been created'
 puts '5 Trips have been created'

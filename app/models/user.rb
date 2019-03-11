@@ -9,6 +9,8 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, presence: true
 
+  scope :is_driver, -> { where("'driver' = ANY(role)") }
+
   def name
     display_name || first_name.capitalize + ' ' + last_name.capitalize
   end
