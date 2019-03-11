@@ -3,16 +3,25 @@
 # Controller handles all Trip actions
 class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update]
-  before_action :filter_blank_times, only: %i[create update]
+  before_action :filter_blank_time_fields, only: %i[create update]
 
   def index
     @date = trip_search_params[:date]
+    @driver_id = trip_search_params[:driver_id]
 
-    @trips = if @date.present?
-               Trip.assigned_to(current_user).scheduled_on(@date.to_date)
-             else
-               Trip.assigned_to(current_user)
-             end
+    if @driver_id.present?
+      if @date.present?
+        @trips = Trip.assigned_to(current_user).with_driver(@driver_id).scheduled_on(@date.to_date)
+      else
+        @trips = Trip.assigned_to(current_user).with_driver(@driver_id)
+      end
+    else
+      if @date.present?
+        @trips = Trip.assigned_to(current_user).scheduled_on(@date.to_date)
+      else
+        @trips = Trip.assigned_to(current_user)
+      end
+    end
   end
 
   def new
@@ -54,23 +63,23 @@ class TripsController < ApplicationController
   end
 
   def trip_search_params
-    params.permit(:date)
+    params.permit(:date, :driver_id)
   end
 
   def set_trip
     @trip = Trip.find(params[:id])
   end
 
-  def filter_blank_times
+  def filter_blank_time_fields
     time_fields = %w[scheduled_pickup_time actual_pickup_time departure_time actual_dropoff_time]
     time_inputs = %w[(1i) (2i) (3i) (4i) (5i)]
 
     time_fields.each do |field|
-      if params[:trip]["#{field}(4i)"].blank?
-        time_inputs.each do |input|
-          params[:trip]["#{field}#{input}"] = ''
-        end
+      next unless params[:trip]["#{field}(4i)"].blank?
+
+      time_inputs.each do |input|
+        params[:trip]["#{field}#{input}"] = ''
       end
-    end 
+    end
   end
 end

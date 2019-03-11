@@ -5,11 +5,11 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 ## TODO
 
 - Customize admin dashboard property views (enum field?)
+- Add return trip on new trip entry
 - Display only users with Driver role in Driver field on trip edit screen
 - Refactor role check in Trip model
 - Refactor to clean tests code
 - Review rspec for Trip model validations
-- Review server-side processing for datatables
 - Add gitter notifications for all db actions
 
 ## Models:

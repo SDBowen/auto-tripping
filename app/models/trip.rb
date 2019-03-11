@@ -10,6 +10,7 @@ class Trip < ApplicationRecord
 
   scope :assigned_to, ->(user) { where(user_id: user.id) unless (user.role & %w[dispatch admin]).present? }
   scope :scheduled_on, ->(date) { where(scheduled_pickup_date: date) }
+  scope :with_driver, ->(user_id) { where(user_id: user_id) }
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"

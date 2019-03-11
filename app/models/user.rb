@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   def name
-    display_name || first_name.upcase + ' ' + last_name.upcase
+    display_name || first_name.capitalize + ' ' + last_name.capitalize
   end
 end

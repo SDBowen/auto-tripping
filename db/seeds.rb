@@ -12,7 +12,7 @@ User.create(email: 'user@user.com', password: 'password', password_confirmation:
 
 User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'Tester', role: ['dispatch'])
 
-User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: ['admin'])
+User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: %w[admin driver])
 
 driver1 = User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', display_name: 'DriverOne', role: ['driver'])
 
@@ -204,7 +204,7 @@ trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, dr
 
 20.times do |trip|
   Trip.create(
-    status: trip_driver[trip].nil? ? 0 : 1, 
+    status: trip_driver[trip].nil? ? 0 : 1,
     trip_number: trip_numbers[trip],
     first_name: first_names[trip],
     last_name: last_names[trip],
@@ -214,8 +214,9 @@ trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, dr
     pickup_zip: pickup_zips[trip],
     delivery_address: delivery_addresses[trip],
     delivery_city: 'boise',
-    appointment_date: '20190208',
+    appointment_date: (trip.even? ? Time.zone.today : (Time.zone.today + 1.day)),
     appointment_time: app_times[trip],
+    scheduled_pickup_date: (trip.even? ? Time.zone.today : (Time.zone.today + 1.day)),
     reason_code: '29',
     provider_status: 'S1',
     vehicle_type: 'P',
@@ -226,7 +227,7 @@ trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, dr
     cost: trip_costs[trip],
     special_needs: 'CALL TO CONFIRM W PICK UP TIME/CALL UPON ARRIVAL',
     instructions: 'RTP M,T W F 9AM-3:00PM    DOOR TO DOOR ASSISTANCE',
-    user_id: trip_driver[trip].nil? ? nil : trip_driver[trip].id 
+    user_id: trip_driver[trip].nil? ? nil : trip_driver[trip].id
   )
 end
 
@@ -247,7 +248,7 @@ end
     mileage: 6.2,
     cost: 25.00,
     status: 1,
-    scheduled_pickup_date: (trip.even? ? Date.today : (Date.today + 1.day)),
+    scheduled_pickup_date: (trip.even? ? Time.zone.today : (Time.zone.today + 1.day)),
     user_id: (trip.even? ? driver1.id : driver2.id)
   )
 end
