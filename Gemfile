@@ -64,7 +64,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.6'
-gem 'bootstrap'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails'
 gem "gritter", "1.2.0"
 gem 'administrate', '~> 0.11.0'
