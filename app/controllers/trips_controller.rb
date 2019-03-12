@@ -67,6 +67,7 @@ class TripsController < ApplicationController
     time_inputs = %w[(1i) (2i) (3i) (4i) (5i)]
 
     time_fields.each do |field|
+      next if params[:trip]["#{field}(4i)"].nil?
       next unless params[:trip]["#{field}(4i)"].blank?
 
       time_inputs.each do |input|

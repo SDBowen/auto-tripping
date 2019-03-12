@@ -6,7 +6,7 @@ class Trip < ApplicationRecord
 
   enum status: { entered: 0, scheduled: 1, completed: 2, billed: 3, locked: 4 }
   validates :first_name, :last_name, :pickup_address, :pickup_city, :pickup_zip, :delivery_address, :delivery_city, presence: true
-  before_save :normalize_blank_values
+  before_save :normalize_blank_values, :set_trip_status
 
   scope :assigned_to, ->(user) { where(user_id: user.id) unless (user.role & %w[dispatch admin]).present? }
   scope :scheduled_on, ->(date) { where(scheduled_pickup_date: date) }
@@ -21,6 +21,18 @@ class Trip < ApplicationRecord
   end
 
   private
+
+  def set_trip_status
+    if entered?
+      scheduled! unless scheduled_pickup_time.nil? || user_id.nil? || scheduled?
+    end
+    if scheduled?
+      completed! unless scheduled_pickup_time.nil? || user_id.nil? || actual_pickup_time.nil? || departure_time.nil? || actual_dropoff_time.nil? || completed?
+    end
+    if scheduled?
+      entered! if (scheduled_pickup_time.nil? || user_id.nil?) && scheduled?
+    end
+  end
 
   def tool_tip_generator
     if special_needs.nil? && instructions.nil?
