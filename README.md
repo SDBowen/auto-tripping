@@ -1,86 +1,50 @@
-# Scheduler App
+# Auto Tripping
 
-Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
+Auto Tripping is a trip management system, built to support a small transportation business manage the trip life-cycle.
 
-## TODO
+This project is being developed as open-source with permission of the business owner.
 
-- Customize admin dashboard property views (enum field?)
-- Add return trip on new trip entry
-- Display only users with Driver role in Driver field on trip edit screen
-- Refactor role check in Trip model
-- Refactor to clean tests code
-- Review rspec for Trip model validations
-- Add gitter notifications for all db actions
+### Key Features
 
-## Models:
+#### Dispatchers
 
-- User ->
-- Vehicle ->
-- Trip ->
+- Can enter transportation requests from customers.
+- Can view all trips on a specified date.
 
-## Features:
+#### Drivers
 
-- Admin dashboard
-- Import CSV trip detail
-- Display trips by day
-- Assign driver and scheduled pick up time to trip
-- Assign vehicle to completed trip
-- Export CSV of completed trips
+- Can view all trips assigned to them
+- Can enter the times associated with a trip (pickup and drop-off)
 
-## UI
+#### Admin
 
-- Bootstrap
-- FA Icons
+- Can manage dispatcher and driver accounts
+- Can enter vehicles and assign them to a driver
 
-## Planning
+## Getting Started
 
-### Process
+This project is currently under active development. The development environment is being hosting at [coming soon]
 
-1. Enter a trip
-2. Schedule a trip (sched. pickup time & driver)
-3. Complete a trip (actual pick time, departure time, actual drop off, vehicle id, and signature type)
-4. Bill a trip
-5. Locked
+The database has been seeded with test data. The accounts below are used to test user roles:
 
-### Stages
+#### Dispatcher
 
-- Trip -> Scheduled -> Complete -> Billed -> Locked
+- Account: dispatcher@dispatcher.com
 
-### Trip Status
+#### Drivers
 
-0. Entered
-1. Scheduled
-1. Completed
-1. Billed
-1. Locked
+- Account: driver@driver.com
+- Account: driver2@driver.com
 
-### Key Data Fields
+#### Admin
 
-#### Trip (initial)
+- Account: admin@admin.com
 
-- first_name -> string, required
-- last_name -> string, required
-- pickup_address -> string, required
-- pickup_city -> string, required
-- pickup_zip -> number, required
-- deliver_address -> string, required
-- delivery_city -> string, required
+## Built With
 
-#### Trip (final)
+- [Rails](https://rubyonrails.org/) - Application framework
+- [Bootstrap](https://getbootstrap.com/) - Front-end component library
 
-- scheduled_pickup -> datetime, required
-- mileage -> float, required
-- cost -> float, required
-- actual_pickup_time -> time, required
-- departure_time -> time, required
-- actual_dropoff_time -> time, required
+## Authors
 
-#### User
-
-- display_name - string, required
-- first_name, string, required
-- last_name, string, required
-
-#### Vehicle
-
-- vehicle_number, string, required
+- **Steven Bowen** - [SDBowen](https://github.com/SDBowen)
