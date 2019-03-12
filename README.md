@@ -29,16 +29,16 @@ The database has been seeded with test data. The accounts below are used to test
 
 #### Dispatcher
 
-- Account: dispatcher@dispatcher.com
+- dispatcher@dispatcher.com
 
 #### Drivers
 
-- Account: driver@driver.com
-- Account: driver2@driver.com
+- driver@driver.com
+- driver2@driver.com
 
 #### Admin
 
-- Account: admin@admin.com
+- admin@admin.com
 
 ## Built With
 
