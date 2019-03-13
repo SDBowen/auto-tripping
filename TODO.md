@@ -4,6 +4,9 @@ Key requirement: Manage trip lifecycle; import, scheduleing, and billing.
 
 ## TODO
 
+- account for dst
+- status tests
+
 - Customize admin dashboard property views (enum field?)
 - Add return trip on new trip entry
 - Display only users with Driver role in Driver field on trip edit screen
