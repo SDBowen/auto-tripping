@@ -9,7 +9,7 @@ class TripsController < ApplicationController
     @date = trip_search_params[:date]
     @driver_id = trip_search_params[:driver_id]
 
-    query = Trip.assigned_to(current_user)
+    query = Trip.order(:scheduled_pickup_time).assigned_to(current_user)
     query = query.with_driver(@driver_id) if @driver_id.present?
     query = query.scheduled_on(@date.to_date) if @date.present?
 
