@@ -24,13 +24,13 @@ class Trip < ApplicationRecord
 
   def set_trip_status
     if entered?
-      scheduled! unless scheduled_pickup_time.nil? || user_id.nil? || scheduled?
+      scheduled! unless scheduled_pickup_time.nil? || user_id.nil?
     end
     if scheduled?
-      completed! unless scheduled_pickup_time.nil? || user_id.nil? || actual_pickup_time.nil? || departure_time.nil? || actual_dropoff_time.nil? || completed?
+      completed! unless scheduled_pickup_time.nil? || user_id.nil? || actual_pickup_time.nil? || departure_time.nil? || actual_dropoff_time.nil?
     end
     if scheduled?
-      entered! if (scheduled_pickup_time.nil? || user_id.nil?) && scheduled?
+      entered! if scheduled_pickup_time.nil? || user_id.nil?
     end
   end
 
