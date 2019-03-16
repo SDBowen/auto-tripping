@@ -9,10 +9,10 @@
     <%= trip.full_name %>
   </td>
   <td>
-    <%= trip.pickup_address %>
+    <%= link_to(trip.pickup_address, build_url(trip, 'pickup'), target: :_blank) %>
   </td>
   <td>
-    <%= trip.delivery_address %>
+    <%= link_to(trip.delivery_address, build_url(trip, 'delivery'), target: :_blank) %>
   </td>
   <td>
     <%= trip.phone_number %>
