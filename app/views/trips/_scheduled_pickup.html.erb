@@ -1,7 +1,7 @@
-<% if policy(trip).new? && !trip.completed? || !trip.billed? || !trip.locked? %>
+<% if policy(trip).new? && (trip.entered? || trip.scheduled?) %>
   <%= form_with model: trip, method: :put do |f| %>
     <%= f.time_select :scheduled_pickup_time, {include_blank: true, minute_step: 5, ampm: true}, {id: "index-pickup-select-#{trip.id}", onchange: 'Rails.fire(this.form, "submit")'} %>
   <% end %>
 <% else %>
-  <%= trip.scheduled_pickup_time %>
+  <%= trip.scheduled_pickup_time.to_s(:time) %>
 <% end %>
