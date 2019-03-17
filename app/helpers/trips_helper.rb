@@ -6,15 +6,15 @@ module TripsHelper
   end
 
   def build_url(trip, type)
-    if type == 'pickup'
-      url = 'https://www.google.com/maps/search/?api=1&query='
-      query = "#{trip.pickup_address}, #{trip.pickup_city}, #{trip.pickup_zip}"
-      url + CGI.escape(query)
-    else
-      url = 'https://www.google.com/maps/search/?api=1&query='
-      query = "#{trip.delivery_address}, #{trip.delivery_city}"
-      url + CGI.escape(query)
-    end
+    url = 'https://www.google.com/maps/search/?api=1&query='
+    query = 
+      if type == 'pickup'
+        "#{trip.pickup_address}, #{trip.pickup_city}, #{trip.pickup_zip}"
+      else
+        "#{trip.delivery_address}, #{trip.delivery_city}"
+      end
+
+    url + CGI.escape(query)
   end
 
   private
