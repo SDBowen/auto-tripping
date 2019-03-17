@@ -1,2 +1,8 @@
-<h1>Edit Trip</h1>
-<%= render 'form'  %>
+<div class="container">
+  <h1 class="mt-2">Edit Trip</h1>
+  <% if (current_user.role & %w[dispatch admin]).present? %>
+    <%= render 'form'  %>
+  <% else %>
+    <%= render partial: 'driver_edit', locals: { trip: @trip }  %>
+  <% end %>
+</div>

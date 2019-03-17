@@ -4,123 +4,121 @@
       <%= js add_gritter(error, title: 'Scheduler Notification', sticky: false)  %>
     <% end %>
   <% end %>
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <%= f.text_field :provider, class:"form-control", placeholder: 'Provider' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :provider_status, class:"form-control", placeholder: 'Provider Status' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :trip_number, class:"form-control", placeholder: 'Trip Number' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :reason_code, class:"form-control", placeholder: 'Reason Code' %>
-      </div>
+  <div class="row">
+    <div class="col">
+      <%= f.text_field :provider, class:"form-control", placeholder: 'Provider' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_field :first_name, class:"form-control", placeholder: 'First Name' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :last_name, class:"form-control", placeholder: 'Last Name' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :phone_number, class:"form-control", placeholder: 'Phone Number' %>
-      </div>
+    <div class="col">
+      <%= f.text_field :provider_status, class:"form-control", placeholder: 'Provider Status' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_field :pickup_address, class:"form-control", placeholder: 'Pick Up Address' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :pickup_city, class:"form-control", placeholder: 'Pick Up City' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :pickup_zip, class:"form-control", placeholder: 'Pick Up Zip' %>
-      </div>
+    <div class="col">
+      <%= f.text_field :trip_number, class:"form-control", placeholder: 'Trip Number' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_field :delivery_address, class:"form-control", placeholder: 'Drop Off Address' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :delivery_city, class:"form-control", placeholder: 'Drop Off City' %>
-      </div>
+    <div class="col">
+      <%= f.text_field :reason_code, class:"form-control", placeholder: 'Reason Code' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_field :appointment_date, class:"form-control", placeholder: 'Appointment Date' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :appointment_time, class:"form-control", placeholder: 'Appointment Time' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :vehicle_type, class:"form-control", placeholder: 'Vehicle Type' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :trip_type, class:"form-control", placeholder: 'Trip Type' %>
-      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_field :first_name, class:"form-control", placeholder: 'First Name' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_field :additional_passengers, class:"form-control", placeholder: 'Additional Passengers' %>
-      </div>
-      <div class="col">
-        <%= f.text_field :additional_appointments, class:"form-control", placeholder: 'Additional Appointments' %>
-      </div>
-      <div class="col">
-        <%= f.number_field :mileage, class:"form-control", placeholder: 'Mileage' %>
-      </div>
-      <div class="col">
-        <%= f.number_field :cost, class:"form-control", placeholder: 'Cost' %>
-      </div>
+    <div class="col">
+      <%= f.text_field :last_name, class:"form-control", placeholder: 'Last Name' %>
     </div>
-    <div class="row mt-5">
-      <div class="col form-group">
-        <%= f.label :scheduled_pickup_time %>
-        <%= f.time_select :scheduled_pickup_time, minute_step: 5, include_blank: true, ampm: true, class:"form-control" %>
-      </div>
-      <div class="col form-group">
-        <%= f.label :actual_pickup_time %>
-        <%= f.time_select :actual_pickup_time, ampm: true, include_blank: true, class:"form-control"%>
-      </div>
+    <div class="col">
+      <%= f.text_field :phone_number, class:"form-control", placeholder: 'Phone Number' %>
     </div>
-    <div class="row mt-1">
-      <div class="col form-group">
-        <%= f.label :departure_time %>
-        <%= f.time_select :departure_time, ampm: true, include_blank: true, class:"form-control" %>
-      </div>
-      <div class="col form-group">
-        <%= f.label :actual_dropoff_time %>
-        <%= f.time_select :actual_dropoff_time, ampm: true, include_blank: true, class:"form-control" %>
-      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_field :pickup_address, class:"form-control", placeholder: 'Pick Up Address' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.collection_select :user_id, User.order(:first_name), :id, :first_name, include_blank: true, class:"form-control" %>
-      </div>
-      <div class="col">
-        <%= f.collection_select :vehicle_id, Vehicle.order(:vehicle_number), :id, :vehicle_number, include_blank: true, class:"form-control" %>
-      </div>
-      <div class="col">
-        <%= f.select :signature_type, ['M', 'P', 'C'], include_blank: true, class:"form-control" %>
-      </div>
+    <div class="col">
+      <%= f.text_field :pickup_city, class:"form-control", placeholder: 'Pick Up City' %>
     </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.text_area :special_needs, class:"form-control", placeholder: 'Special Needs' %>
-      </div>
-      <div class="col">
-        <%= f.text_area :instructions, class:"form-control", placeholder: 'Additional Instructions' %>
-      </div>
+    <div class="col">
+      <%= f.text_field :pickup_zip, class:"form-control", placeholder: 'Pick Up Zip' %>
     </div>
-    <%= render partial: 'status', locals: { f: f } if policy(@trip).update? %>
-    <div class="row mt-3">
-      <div class="col">
-        <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3' %>
-      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_field :delivery_address, class:"form-control", placeholder: 'Drop Off Address' %>
+    </div>
+    <div class="col">
+      <%= f.text_field :delivery_city, class:"form-control", placeholder: 'Drop Off City' %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_field :appointment_date, class:"form-control", placeholder: 'Appointment Date' %>
+    </div>
+    <div class="col">
+      <%= f.text_field :appointment_time, class:"form-control", placeholder: 'Appointment Time' %>
+    </div>
+    <div class="col">
+      <%= f.text_field :vehicle_type, class:"form-control", placeholder: 'Vehicle Type' %>
+    </div>
+    <div class="col">
+      <%= f.text_field :trip_type, class:"form-control", placeholder: 'Trip Type' %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_field :additional_passengers, class:"form-control", placeholder: 'Additional Passengers' %>
+    </div>
+    <div class="col">
+      <%= f.text_field :additional_appointments, class:"form-control", placeholder: 'Additional Appointments' %>
+    </div>
+    <div class="col">
+      <%= f.number_field :mileage, class:"form-control", placeholder: 'Mileage' %>
+    </div>
+    <div class="col">
+      <%= f.number_field :cost, class:"form-control", placeholder: 'Cost' %>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col form-group">
+      <%= f.label :scheduled_pickup_time %>
+      <%= f.time_select :scheduled_pickup_time, minute_step: 5, include_blank: true, ampm: true, class:"form-control" %>
+    </div>
+    <div class="col form-group">
+      <%= f.label :actual_pickup_time %>
+      <%= f.time_select :actual_pickup_time, ampm: true, include_blank: true, class:"form-control"%>
+    </div>
+  </div>
+  <div class="row mt-1">
+    <div class="col form-group">
+      <%= f.label :departure_time %>
+      <%= f.time_select :departure_time, ampm: true, include_blank: true, class:"form-control" %>
+    </div>
+    <div class="col form-group">
+      <%= f.label :actual_dropoff_time %>
+      <%= f.time_select :actual_dropoff_time, ampm: true, include_blank: true, class:"form-control" %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.collection_select :user_id, User.order(:first_name), :id, :first_name, include_blank: true, class:"form-control" %>
+    </div>
+    <div class="col">
+      <%= f.collection_select :vehicle_id, Vehicle.order(:vehicle_number), :id, :vehicle_number, include_blank: true, class:"form-control" %>
+    </div>
+    <div class="col">
+      <%= f.select :signature_type, ['M', 'P', 'C'], include_blank: true, class:"form-control" %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.text_area :special_needs, class:"form-control", placeholder: 'Special Needs' %>
+    </div>
+    <div class="col">
+      <%= f.text_area :instructions, class:"form-control", placeholder: 'Additional Instructions' %>
+    </div>
+  </div>
+  <%= render partial: 'status', locals: { f: f } if policy(@trip).update? %>
+  <div class="row mt-3">
+    <div class="col">
+      <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3' %>
     </div>
   </div>
 <% end %>
