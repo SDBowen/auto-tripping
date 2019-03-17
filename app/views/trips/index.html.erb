@@ -1,5 +1,7 @@
 <% if (current_user.role & %w[dispatch admin]).present? %>
   <%= render partial: 'dispatch_index' %>
 <% else %>
-  <%= render partial: 'driver_index'  %>
+  <div class="mt-3">
+    <%= render partial: 'driver_index', locals: { trips: @trips }  %>
+  </div>
 <% end %>
