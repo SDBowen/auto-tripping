@@ -8,15 +8,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'User', last_name: 'Tester')
+User.create(email: 'user@user.com', password: 'password', password_confirmation: 'password', first_name: 'Demo', last_name: 'User')
 
-User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'Tester', role: ['dispatch'])
+User.create(email: 'dispatch@dispatch.com', password: 'password', password_confirmation: 'password', first_name: 'Dispatch', last_name: 'User', role: ['dispatch'])
 
-User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'Tester', role: %w[admin driver])
+User.create(email: 'admin@admin.com', password: 'password', password_confirmation: 'password', first_name: 'Admin', last_name: 'User', role: ['admin'])
 
-driver1 = User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver', last_name: 'Tester', display_name: 'DriverOne', role: ['driver'])
+driver1 = User.create(email: 'driver@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Pat', last_name: 'Roth', role: ['driver'])
 
-driver2 = User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Driver2', last_name: 'Tester', display_name: 'DriverTwo', role: ['driver'])
+driver2 = User.create(email: 'driver2@driver.com', password: 'password', password_confirmation: 'password', first_name: 'Thomas', last_name: 'Parker', display_name: 'Tom', role: ['driver'])
 
 delivery_addresses = ['1320 N 7th ST', '10348 W Smoke Ranch DR',
                       '2844 Chinkapin AVE', '5478 Aleut PL',
@@ -204,7 +204,6 @@ trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, dr
 
 20.times do |trip|
   Trip.create(
-    status: trip_driver[trip].nil? ? 0 : 1,
     trip_number: trip_numbers[trip],
     first_name: first_names[trip],
     last_name: last_names[trip],
@@ -231,28 +230,6 @@ trip_driver = [driver1, driver1, driver2, driver2, driver1, driver1, driver1, dr
   )
 end
 
-5.times do |trip|
-  Trip.create(
-    trip_number: (1 + trip),
-    first_name: 'test',
-    last_name: 'tester',
-    phone_number: '0987654321',
-    pickup_address: 'Downtown St',
-    pickup_city: 'BOISE',
-    pickup_zip: '12345',
-    delivery_address: 'Uptown Dr',
-    delivery_city: 'Boise',
-    appointment_date: '20190208',
-    appointment_time: '300',
-    vehicle_type: 'P',
-    mileage: 6.2,
-    cost: 25.00,
-    status: 1,
-    scheduled_pickup_date: (trip.even? ? Time.zone.today : (Time.zone.today + 1.day)),
-    user_id: (trip.even? ? driver1.id : driver2.id)
-  )
-end
-
 4.times do |vehicle|
   Vehicle.create(
     vin: '9876543211283625',
@@ -266,4 +243,3 @@ puts '1 Admin created'
 puts '3 Drivers created'
 puts '4 Vehicles created'
 puts '20 MTM Trips have been created'
-puts '5 Trips have been created'
