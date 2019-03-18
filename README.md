@@ -23,7 +23,7 @@ This project is being developed as open-source with permission of the business o
 
 ## Getting Started
 
-This project is currently under active development. The development environment is being hosting at [coming soon]
+This project is currently under active development. The development environment is being hosting at [https://safe-fortress-88475.herokuapp.com]
 
 The database has been seeded with test data. The accounts below are used to test user roles:
 
