@@ -1,27 +1,17 @@
+<% time = next_time_needed(trip) %>
 <%= form_for trip do |f| %>
   <% if trip.errors.any?  %>
     <% trip.errors.full_messages.each do |error| %>
       <%= js add_gritter(error, title: 'Scheduler Notification', sticky: false)  %>
     <% end %>
   <% end %>
+  <canvas id="canvas"></canvas>
   <div class="row">
     <div class='col'>
       <div class="row mt-5">
         <div class="form-group">
-          <%= f.label :actual_pickup_time %>
-          <%= f.time_select :actual_pickup_time, ampm: true, include_blank: true, class:"form-control"%>
-        </div>
-      </div>
-      <div class="row mt-1">
-        <div class="form-group">
-          <%= f.label :departure_time %>
-          <%= f.time_select :departure_time, ampm: true, include_blank: true, class:"form-control" %>
-        </div>
-      </div>
-      <div class="row mt-1">
-        <div class="form-group">
-          <%= f.label :actual_dropoff_time %>
-          <%= f.time_select :actual_dropoff_time, ampm: true, include_blank: true, class:"form-control" %>
+          <%= f.label time %>
+          <%= f.time_select time, ampm: true, include_blank: true, class:"form-control"%>
         </div>
       </div>
       <div class="row mt-3">

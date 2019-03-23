@@ -1,5 +1,11 @@
 {
   "name": "Scheduler",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^4.0.2",
+    "signature_pad": "^3.0.0-beta.3"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.2.1"
+  }
 }

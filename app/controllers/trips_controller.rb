@@ -40,8 +40,12 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.js
-        format.html { redirect_to @trip, notice: 'Trip updated successfully' }
+        if current_user == 'driver'
+          format.html { redirect_to :edit_trip, notice: 'Trip updated successfully' }
+        else
+          format.js
+          format.html { redirect_to @trip, notice: 'Trip updated successfully' }
+        end
       else
         format.html { render :edit }
       end
