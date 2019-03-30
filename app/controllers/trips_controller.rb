@@ -40,11 +40,11 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        if current_user == 'driver'
-          format.html { redirect_to :edit_trip, notice: 'Trip updated successfully' }
+        if current_user.role.include?('driver')
+          format.html { redirect_to :edit_trip }
         else
           format.js
-          format.html { redirect_to @trip, notice: 'Trip updated successfully' }
+          format.html { redirect_to @trip }
         end
       else
         format.html { render :edit }

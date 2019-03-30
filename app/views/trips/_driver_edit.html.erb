@@ -1,11 +1,13 @@
-<% time = next_time_needed(trip) %>
 <%= form_for trip do |f| %>
   <% if trip.errors.any?  %>
     <% trip.errors.full_messages.each do |error| %>
       <%= js add_gritter(error, title: 'Scheduler Notification', sticky: false)  %>
     <% end %>
   <% end %>
-  <canvas id="canvas"></canvas>
+  <% time = next_time_needed(trip) %>
+  <% if time == :signature %>
+    <canvas id="canvas"></canvas>
+  <% end %>
   <div class="row">
     <div class='col'>
       <div class="row mt-5">
