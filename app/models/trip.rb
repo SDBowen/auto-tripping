@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Trip < ApplicationRecord
+  has_one_attached :signature
   has_one :user
   has_one :vehicle
 
@@ -20,6 +21,10 @@ class Trip < ApplicationRecord
     tool_tip_generator
   end
 
+  def update_status
+    set_trip_status
+  end
+
   private
 
   def set_trip_status
@@ -27,7 +32,7 @@ class Trip < ApplicationRecord
       scheduled! unless scheduled_pickup_time.nil? || user_id.nil?
     end
     if scheduled?
-      completed! unless scheduled_pickup_time.nil? || user_id.nil? || actual_pickup_time.nil? || departure_time.nil? || actual_dropoff_time.nil?
+      completed! unless scheduled_pickup_time.nil? || user_id.nil? || actual_pickup_time.nil? || departure_time.nil? || actual_dropoff_time.nil? || !signature.attached?
     end
     if scheduled?
       entered! if scheduled_pickup_time.nil? || user_id.nil?

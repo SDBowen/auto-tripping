@@ -5,19 +5,21 @@
     <% end %>
   <% end %>
   <% time = next_time_needed(trip) %>
-  <% if time == :signature %>
-    <canvas id="canvas"></canvas>
-  <% end %>
   <div class="row">
     <div class='col'>
       <div class="row mt-5">
         <div class="form-group">
-          <%= f.label time %>
-          <%= f.time_select time, ampm: true, include_blank: true, class:"form-control"%>
+          <% if time == :signature %>
+            <canvas id="canvas"></canvas>
+            <%= f.hidden_field time, class:"form-control", id: "signature-input"%>
+          <% else %>
+            <%= f.label time %>
+            <%= f.time_select time, ampm: true, include_blank: true, class:"form-control"%>
+          <% end %>
         </div>
       </div>
       <div class="row mt-3">
-        <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3' %>
+        <%= f.submit 'Save', class: 'btn btn-primary btn-block mt-3', id: 'driver_edit_submit' %>
       </div>
     </div>
   </div>
