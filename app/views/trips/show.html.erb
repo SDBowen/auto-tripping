@@ -118,5 +118,9 @@
     <span class="show-trip-label"> actual_dropoff_time: </span>
     <span class="show-trip-value"> <%= @trip.actual_dropoff_time %></span>
   </div>
+  <div class="show-trip-item">
+    <span class="show-trip-label"> signature: </span>
+    <span class="show-trip-value"> <%= image_tag @trip.signature %></span>
+  </div>
 </div>
 <%= link_to 'Edit', edit_trip_path(@trip), class: 'btn btn-primary mt-4' if policy(@trip).update? %>

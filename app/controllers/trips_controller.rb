@@ -38,26 +38,26 @@ class TripsController < ApplicationController
   end
 
   def update
-    
-
     respond_to do |format|
       if trip_params.key?(:signature)
 
-        @decoded_file = Base64.decode64(trip_params[:signature])
-        @filename = 'signature.png'
-        @tmp_file = Tempfile.new(@filename)
-        @tmp_file.binmode
-        @tmp_file.write @decoded_file
-        @tmp_file.rewind
-  
-        @trip.signature.attach(io: @tmp_file, filename: @filename)
-  
-        @tmp_file.unlink
-  
+        data_uri = trip_params[:signature]
+        encoded_image = data_uri.split(',')[1]
+        decoded_image = Base64.decode64(encoded_image)
+        filename = 'signature.png'
+        tmp_file = Tempfile.new(filename)
+        tmp_file.binmode
+        tmp_file.write(decoded_image)
+        tmp_file.rewind
+
+        @trip.signature.attach(io: tmp_file, filename: filename)
+
+        tmp_file.unlink
+
         @trip.update_status
         format.html { redirect_to :trips }
       end
-      
+
       if !trip_params.key?(:signature) && @trip.update(trip_params)
         if current_user.role.include?('driver')
           format.html { redirect_to :edit_trip }
