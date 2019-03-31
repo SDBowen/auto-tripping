@@ -2,8 +2,14 @@
 
 wb = xlsx_package.workbook
 
-wb.add_worksheet(name: 'Trip Schedule') do |sheet|
-  @trips.each do |trip|
-    sheet.add_row [assigned_driver(trip.user_id), trip.full_name, trip.pickup_address, trip.delivery_address, trip.phone_number, trip.scheduled_pickup_time, trip.appointment_time, trip.vehicle_type, trip.reason_code, trip.mileage, trip.instructions, trip.cost, trip.provider, trip.trip_number]
+wb.styles do |s|
+  header = s.add_style(b: true, alignment: { horizontal: :center, vertical: :center, wrap_text: true })
+  align_text = s.add_style(alignment: { horizontal: :center, vertical: :center, wrap_text: true })
+
+  wb.add_worksheet(name: 'Trip Schedule') do |sheet|
+    sheet.add_row ['Driver', 'Member Name', 'Pickup Address', 'Drop-off Address', 'Phone Number', 'Scheduled Pickup Date', 'Appontment Date', 'Actual Pickup Time', 'Actual Drop-off Time', 'Vehicle Type', 'Trip Reason', 'Miles', 'Trip Instructions', 'Fee', 'Notes', 'Trip Number'], style: header, height: 50.0
+    @trips.each do |trip|
+      sheet.add_row [assigned_driver(trip.user_id), trip.full_name, trip.pickup_address, trip.delivery_address, trip.phone_number, trip.scheduled_pickup_time, trip.appointment_time, trip.actual_pickup_time, trip.actual_dropoff_time, trip.vehicle_type, trip.reason_code, trip.mileage, trip.instructions, trip.cost, trip.provider, trip.trip_number], style: align_text, height: 50.0
+    end
   end
 end
