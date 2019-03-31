@@ -71,4 +71,6 @@ gem "gritter", "1.2.0"
 gem 'administrate', '~> 0.11.0'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'octicons_helper', '~> 8.4', '>= 8.4.1'
-gem 'bootstrap-datepicker-rails', '~> 1.8', '>= 1.8.0.1'
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git', ref: 'c8ac844'
+gem 'axlsx_rails'

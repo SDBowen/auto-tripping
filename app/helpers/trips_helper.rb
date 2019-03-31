@@ -7,7 +7,7 @@ module TripsHelper
 
   def build_url(trip, type)
     url = 'https://www.google.com/maps/search/?api=1&query='
-    query = 
+    query =
       if type == 'pickup'
         "#{trip.pickup_address}, #{trip.pickup_city}, #{trip.pickup_zip}"
       else
@@ -15,6 +15,10 @@ module TripsHelper
       end
 
     url + CGI.escape(query)
+  end
+
+  def assigned_driver(user_id)
+    User.find_by_id(user_id) ? User.find_by_id(user_id).name : 'Not assigned'
   end
 
   private

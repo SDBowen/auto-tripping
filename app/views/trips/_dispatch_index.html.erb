@@ -4,6 +4,7 @@
       <%= f.date_field :date, value: @date, onchange: 'this.form.submit()' %>
       <%= f.collection_select :driver_id, User.is_driver, :id, :name, { selected: @driver_id, include_blank: true }, { onchange: 'this.form.submit()' } %>
     <% end %>
+    <%= link_to 'Create Schedule', trips_path(format: :xlsx), class: "btn btn-sm btn-outline-primary ml-2" %>
   </div>
 </div>
 <div class="mt-3">

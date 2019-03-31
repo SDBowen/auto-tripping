@@ -14,6 +14,11 @@ class TripsController < ApplicationController
     query = query.scheduled_on(@date.to_date) if @date.present?
 
     @trips = query
+
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def new

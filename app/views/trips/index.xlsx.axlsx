@@ -1,0 +1,9 @@
+# frozen_string_literal: true
+
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: 'Trip Schedule') do |sheet|
+  @trips.each do |trip|
+    sheet.add_row [assigned_driver(trip.user_id), trip.full_name, trip.pickup_address, trip.delivery_address, trip.phone_number, trip.scheduled_pickup_time, trip.appointment_time, trip.vehicle_type, trip.reason_code, trip.mileage, trip.instructions, trip.cost, trip.provider, trip.trip_number]
+  end
+end
