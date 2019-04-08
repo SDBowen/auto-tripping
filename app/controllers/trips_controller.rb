@@ -21,6 +21,10 @@ class TripsController < ApplicationController
     end
   end
 
+  def enter_time
+    @trips = Trip.order(:scheduled_pickup_time).assigned_to(current_user)
+  end
+
   def new
     @trip = Trip.new
     authorize @trip

@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
     root to: 'users#index'
   end
-  resources :trips
+  resources :trips do
+    collection do
+      get 'enter_time'
+    end
+  end
   devise_for :users, skip: [:registration]
   root to: 'static#homepage'
 end
