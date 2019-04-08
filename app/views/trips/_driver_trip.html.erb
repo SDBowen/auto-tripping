@@ -24,11 +24,5 @@
     <td>
       <%= trip.mileage %>
     </td>
-    <td>
-      <%= link_to octicon("report", height: 24), trip_path(trip), data: {toggle:"tooltip", placement:'left', title: trip.has_notes, html:true}, class: 'index-note-icon', id: "note_button_#{trip.id}" if trip.has_notes %>
-    </td>
-    <td>
-      <%= link_to octicon("pencil", height: 24), edit_trip_path(trip), class: 'index-edit-icon', id: "edit_button_#{trip.id}" if policy(trip).update? %>
-    </td>
   </tr>
 <% end %>

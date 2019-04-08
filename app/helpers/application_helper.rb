@@ -4,8 +4,8 @@ module ApplicationHelper
   def active?(path)
     if current_page?(path)
       'nav-link active'
-    else 
-    'nav-link'
+    else
+      'nav-link'
     end
   end
 end
